@@ -1,4 +1,8 @@
+//필수
 import React from 'react';
+
+// 스타일
+import './Nav.scss';
 
 class Nav extends React.Component {
   render() {
