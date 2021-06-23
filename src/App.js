@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+// 필수
+import React from 'react';
+
+// 컴포넌트
+import Nav from './components/Nav/Nav'
+
+// 기타
+import './styles/reset.scss';
+import './styles/common.scss';
+import './components/Nav/Nav.scss';
+
+class App extends React.Component {
+
+  render(){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Nav />
     </div>
-  );
+  )
+ }
 }
-
 export default App;

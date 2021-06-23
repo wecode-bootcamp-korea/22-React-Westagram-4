@@ -14,21 +14,20 @@ import LoginSoojeong from './pages/SoojeongLee/Login/Login';
 import MainSoojeong from './pages/SoojeongLee/Main/Main';
 
 // 공용 컴포넌트
-import Nav from './components/Nav';
+
 
 class Routes extends React.Component {
   render() {
     return (
       <Router>
-        <Nav />
-          <Switch>
-          <Route exact path='/login-joonsik' component={LoginGyeongmin} />
-          <Route exact path='/main-joonsik' component={MainGyeongmin} />
-          <Route exact path='/login-jongtaek' component={LoginJaehyun} />
-          <Route exact path='/main-jongtaek' component={MainJaehyun} />
-          <Route exact path='/login-jongtaek' component={LoginSoojeong} />
-          <Route exact path='/main-jongtaek' component={MainSoojeong} />
-          </Switch>
+        <Switch>
+          <Route exact path='/login-Gyeongmin' component={LoginGyeongmin} />
+          <Route exact path='/main-Gyeongmin' component={MainGyeongmin} />
+          <Route exact path='/login-Jaehyun' component={LoginJaehyun} />
+          <Route exact path='/main-Jaehyun' component={MainJaehyun} />
+          <Route exact path='/login-Soojeong' component={LoginSoojeong} />
+          <Route exact path='/main-Soojeong' component={MainSoojeong} />
+        </Switch>
       </Router>
     )
   }

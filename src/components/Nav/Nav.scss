@@ -1,0 +1,66 @@
+@import '../../styles/variables.scss';
+
+nav {
+  // @include flex-center;
+  height: 53px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 100px;
+
+  h1 {
+    .letterLogo {
+      margin-left: 10px;
+      padding-left: 15px;
+      border-left: 2px solid #000;
+      font-family: 'Lobster', cursive;
+      font-weight: 400;
+      color: #000;
+    }
+  }
+
+  .searchBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 214px;
+    padding: 7px;
+    background-color: #fafafa;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+
+    .fa-search {
+      flex: 1;
+      color: #dbdbdb;
+    }
+    
+    input {
+      flex: 9;
+      background: none;
+      border: none;
+      text-align: center;
+      outline: none;
+    }
+  }
+
+  .userBtn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 120px;
+    
+    li {
+      button {
+        background: none;
+        border: none;
+        &:hover {
+          cursor: pointer;
+        }
+        i {
+            font-size: 22px; 
+        }
+      }
+    }
+
+  }
+}
