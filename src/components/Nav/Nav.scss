@@ -33,7 +33,7 @@ nav {
       flex: 1;
       color: #dbdbdb;
     }
-    
+
     input {
       flex: 9;
       background: none;
@@ -48,7 +48,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     width: 120px;
-    
+
     li {
       button {
         background: none;
@@ -57,10 +57,25 @@ nav {
           cursor: pointer;
         }
         i {
-            font-size: 22px; 
+          font-size: 22px;
         }
       }
     }
+  }
+  @media screen and (max-width: 630px) {
+    h1 {
+      .iconLogo {
+        display: none;
+        margin-left: 0;
+        padding-left: 0;
+      }
+      .letterLogo {
+        border-left: none;
+      }
 
+      .searchBox {
+        display: none;
+      }
+    }
   }
 }

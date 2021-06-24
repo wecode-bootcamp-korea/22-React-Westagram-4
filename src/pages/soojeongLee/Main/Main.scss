@@ -1,0 +1,305 @@
+@import '../../../styles/variables.scss';
+
+.Main {
+  main {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 100px;
+    background-color: #fafafa;
+
+    .feeds {
+      flex: 7;
+      background-color: #fff;
+      border-radius: 3px;
+      border: 1px solid #dbdbdb;
+
+      article {
+        header {
+          @include flex-center;
+          justify-content: space-between;
+          align-content: center;
+          padding: 10px;
+
+          h1 {
+            @include flex-center;
+
+            .contentHeader {
+              @include userProfile;
+              margin-right: 10px;
+              background-image: url('http://localhost:3000/images/soojeongLee/userImage.jpg');
+              background-size: cover;
+            }
+            .userName {
+              font-size: 16px;
+              font-weight: 600;
+            }
+          }
+
+          .ellipsis {
+            @include button;
+            font-size: 22px;
+            .ellipsisIcon {
+              font-weight: 400;
+            }
+          }
+        }
+
+        .feedContent {
+          img {
+            width: 100%;
+          }
+
+          .reactionsBox {
+            @include flex-center;
+            justify-content: space-between;
+            padding: 5px 10px;
+
+            .reactionsLeft {
+              display: flex;
+
+              button {
+                @include button;
+                font-size: 22px;
+                margin-right: 10px;
+              }
+            }
+
+            .reactionsRight {
+              button {
+                @include button;
+                font-size: 22px;
+              }
+            }
+          }
+
+          h2 {
+            display: flex;
+            align-items: center;
+            padding: 0 10px 10px;
+            font-size: 16px;
+            font-weight: normal;
+
+            .feedConUser {
+              @include userProfile;
+              margin-right: 5px;
+              background-image: url('http://localhost:3000/images/soojeongLee/user7.jpg');
+              background-size: cover;
+            }
+
+            button {
+              @include button;
+              margin-left: 4px;
+              font-size: 16px;
+            }
+          }
+
+          .feedText {
+            margin-bottom: 10px;
+            padding: 0 10px;
+
+            .postTime {
+              @include postTime;
+              display: block;
+              margin-top: 5px;
+              color: #dbdbdb;
+              font-size: 14px;
+              font-weight: bold;
+            }
+          }
+
+          #commnetBox {
+            li {
+              padding: 5px 10px;
+              font-size: 14px;
+
+              .commentUserId {
+                margin-right: 5px;
+                font-weight: bold;
+              }
+            }
+          }
+        }
+      }
+
+      footer {
+        background-color: #fff;
+        border-top: 1px solid #dbdbdb;
+
+        .inputBox {
+          display: flex;
+          padding: 10px;
+
+          .comment {
+            flex: 9;
+            padding: 7px 0;
+            border: none;
+            outline: none;
+          }
+
+          .commentSubmit {
+            @include button;
+            flex: 1;
+            text-align: right;
+            color: #dbdbdb;
+            &:hover {
+              color: #0096f6;
+            }
+          }
+        }
+      }
+    }
+
+    .main-right {
+      flex: 3;
+      margin-left: 2%;
+
+      .userAccount {
+        padding: 10px;
+
+        h1 {
+          display: flex;
+          font-size: 16px;
+          color: #dbdbdb;
+
+          .mainRightProfile {
+            @include userProfile;
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            min-height: 40px;
+            margin-right: 10px;
+            background-image: url('http://localhost:3000/images/soojeongLee/wecode.jpg');
+            background-size: cover;
+          }
+
+          .accountDec {
+            display: block;
+            font-size: 13px;
+            font-weight: normal;
+          }
+        }
+      }
+
+      .asideBox {
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #ffffff;
+        border-radius: 3px;
+        border: 1px solid #dbdbdb;
+
+        header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 10px;
+
+          h2 {
+            margin-bottom: 5px;
+            font-size: 14px;
+            font-weight: normal;
+            color: #dbdbdb;
+          }
+
+          .btnTextColor {
+            @include button;
+            color: #000;
+            font-weight: bold;
+          }
+        }
+
+        .storyUser {
+          li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-weight: bold;
+
+            .otherUserImg {
+              @include userProfile;
+              margin-right: 10px;
+              img {
+                width: 100%;
+                height: 100%;
+                border-radius: 30px;
+              }
+            }
+
+            .postTime {
+              @include postTime;
+              font-size: 14px;
+              font-weight: normal;
+            }
+          }
+        }
+
+        .recommandUser {
+          .otherUserProfile {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            font-weight: bold;
+
+            .profileBox {
+              display: flex;
+              align-items: center;
+              .otherUserImg {
+                @include userProfile;
+                margin-right: 10px;
+                img {
+                  width: 100%;
+                  height: 100%;
+                  border-radius: 30px;
+                }
+              }
+
+              .followReco {
+                display: block;
+                color: #dbdbdb;
+                font-size: 14px;
+                font-weight: normal;
+              }
+            }
+
+            .follow {
+              @include button;
+              font-weight: bold;
+              color: #0096f6;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  footer {
+    .footList {
+      margin-right: 5px;
+
+      li {
+        float: left;
+        font-size: 14px;
+        &::after {
+          content: '·';
+          margin: 5px;
+        }
+        &:last-child::after {
+          content: '';
+        }
+      }
+    }
+
+    .copyright {
+      display: inline-block;
+      margin-top: 30px;
+      font-size: 14px;
+    }
+  }
+
+  /* 추가 기능 구현 9 */
+  @media screen and (max-width: 900px) {
+    .main-right {
+      display: none;
+    }
+  }
+}

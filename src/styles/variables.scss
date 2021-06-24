@@ -1,19 +1,20 @@
 @mixin flex-center($justify-content: center, $align-items: center) {
-	display: flex;
-	justify-content: center;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
-@mixin userProfile {
+@mixin userProfile() {
   display: inline-block;
   width: 35px;
   height: 35px;
   min-width: 35px;
   min-height: 35px;
-  border : 2px solid hotpink;
+  border: 2px solid hotpink;
+  border-radius: 50%;
 }
 
-@mixin button{
+@mixin button($cursor: pointer) {
   background: none;
   border: none;
   &:hover {
@@ -25,4 +26,3 @@
   display: block;
   color: #dbdbdb;
 }
-
