@@ -1,7 +1,6 @@
 @import '../../styles/variables.scss';
 
 nav {
-  // @include flex-center;
   height: 53px;
   display: flex;
   justify-content: space-between;
@@ -62,20 +61,28 @@ nav {
       }
     }
   }
-  @media screen and (max-width: 630px) {
+
+  @media screen and (max-width: 800px) {
     h1 {
       .iconLogo {
         display: none;
-        margin-left: 0;
-        padding-left: 0;
-      }
-      .letterLogo {
-        border-left: none;
       }
 
-      .searchBox {
-        display: none;
+      .letterLogo {
+        border: none;
+        margin: 0;
+        padding: 0;
       }
     }
+
+    .searchBox {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  nav {
+    padding: 0 5px;
   }
 }

@@ -1,3 +1,8 @@
+$gray-color: #fafafa;
+$follow-color: #0096f6;
+$summit-color: #0096f6;
+$border-color: #dbdbdb;
+
 @mixin flex-center($justify-content: center, $align-items: center) {
   display: flex;
   justify-content: center;
@@ -24,5 +29,5 @@
 
 @mixin postTime {
   display: block;
-  color: #dbdbdb;
+  color: #aaa;
 }
