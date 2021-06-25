@@ -71,7 +71,7 @@ class Main extends React.Component {
             </article>
           </div>
 
-          <div className="main-right">
+          <div className="main-right main-right-media">
             <div id="main-rightFeedProfileContainer">
               <img
                 id="main-rightFeedProfilePhoto"
