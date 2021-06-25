@@ -5,11 +5,32 @@
   src: url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 }
 
-.sr-only{
+@font-face {
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+}
+
+.sr-only {
   position: absolute;
   z-index: -100;
   width: 1px;
   height: 1px;
   overflow: hidden;
   opacity: 0;
+}
+
+@media screen and (max-width: 900px) {
+  .main-right-media {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .Main {
+    main {
+      padding: 20px 5px 0;
+    }
+  }
 }
