@@ -7,11 +7,33 @@ import { Link } from 'react-router-dom';
 import './Login.scss';
 
 class Login extends Component {
+  constructor() {
+    super();
+    this.state = {
+      // default 값 부여
+      id: '',
+      pw: '',
+    };
+  }
+
   goToMain = () => {
     this.props.history.push('/main-Soojeong#');
   };
 
+  handleInputId = event => {
+    this.setState({
+      id: event.target.value,
+    });
+  };
+
+  handleInputPw = event => {
+    this.setState({
+      pw: event.target.value,
+    });
+  };
+
   render() {
+    console.log('handleinput>>>', this.state.handleInput);
     return (
       <div className="Login">
         <main>
@@ -23,15 +45,23 @@ class Login extends Component {
             <h2 className="sr-only">login page</h2>
             <form action="">
               <input
+                onChange={this.handleInputId}
                 type="text"
                 id="loginId"
+                value={this.state.id}
                 placeholder="전화번호, 사용자 이름 또는 이메일"
               />
-              <input type="password" id="loginPw" placeholder="비밀번호" />
+              <input
+                onChange={this.handleInputPw}
+                type="password"
+                id="loginPw"
+                value={this.state.pw}
+                placeholder="비밀번호"
+              />
               <button
+                onClick={this.goToMain}
                 type="button"
                 className="loginBtn"
-                onClick={this.goToMain}
               >
                 로그인
               </button>
