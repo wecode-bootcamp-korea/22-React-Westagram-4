@@ -1,7 +1,6 @@
 @import '../../styles/variables.scss';
 
 nav {
-  // @include flex-center;
   height: 53px;
   display: flex;
   justify-content: space-between;
@@ -33,7 +32,7 @@ nav {
       flex: 1;
       color: #dbdbdb;
     }
-    
+
     input {
       flex: 9;
       background: none;
@@ -48,7 +47,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     width: 120px;
-    
+
     li {
       button {
         background: none;
@@ -57,10 +56,33 @@ nav {
           cursor: pointer;
         }
         i {
-            font-size: 22px; 
+          font-size: 22px;
         }
       }
     }
+  }
 
+  @media screen and (max-width: 800px) {
+    h1 {
+      .iconLogo {
+        display: none;
+      }
+
+      .letterLogo {
+        border: none;
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    .searchBox {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  nav {
+    padding: 0 5px;
   }
 }
