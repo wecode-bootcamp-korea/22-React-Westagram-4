@@ -1,6 +1,6 @@
 @import '../../styles/variables.scss';
 
-nav {
+.nav {
   // @include flex-center;
   height: 53px;
   display: flex;
@@ -33,7 +33,7 @@ nav {
       flex: 1;
       color: #dbdbdb;
     }
-    
+
     input {
       flex: 9;
       background: none;
@@ -48,7 +48,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     width: 120px;
-    
+
     li {
       button {
         background: none;
@@ -57,10 +57,9 @@ nav {
           cursor: pointer;
         }
         i {
-            font-size: 22px; 
+          font-size: 22px;
         }
       }
     }
-
   }
 }
