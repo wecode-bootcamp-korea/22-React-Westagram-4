@@ -1,0 +1,220 @@
+.topheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  border-bottom: 1px #dbdbdb solid;
+  padding-left: 80px;
+  padding-right: 80px;
+  nav {
+    display: flex;
+
+    .headerIcon {
+      width: 30px;
+    }
+
+    .leftNav {
+      span {
+        display: inline-block;
+        padding: 10px;
+
+        img#smallIconLogo {
+          padding-top: 15px;
+          margin: 20px;
+        }
+      }
+
+      a#smallLetterLogo {
+        font-family: 'Billabong';
+        font-size: 50px; //문제점 )아예적용이 안되고 있음
+      }
+    }
+
+    .rightNav {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+    }
+  }
+}
+
+//메인
+
+main.mainPageMain {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  padding-left: 10%;
+  background-color: #fafafa;
+
+  div.feeds {
+    float: left;
+    width: 60%;
+    min-height: 100px;
+    padding-top: 30px;
+    padding-left: 35px;
+    padding-right: 20px;
+    margin: auto;
+
+    article {
+      width: 100%;
+      height: 100%;
+      border-color: #dbdbdb;
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 1%;
+
+      div.feedTop {
+        display: flex;
+        padding: 8px;
+
+        #feedProfilePhoto {
+          margin: 2px;
+          border-width: 1px;
+          width: 40px;
+          border-radius: 70%;
+          border-color: #dbdbdb;
+          border-style: solid;
+        }
+
+        div#feedProfileAccount {
+          /* flex: 4 1; */
+          /* display: inline-block; */
+          float: left;
+          margin: 10px;
+        }
+      }
+
+      .feedImage {
+        img#feedImage1 {
+          width: 100%;
+          /* display:inline-block; */
+        }
+      }
+      #feedFunction {
+        display: flex;
+
+        .feedIcon {
+          width: 25px;
+          margin-left: 5px;
+        }
+      }
+      #howManyLikes {
+        margin: 5px;
+      }
+      #feedContentsContainer {
+        margin: 5px;
+        #feedContentsId {
+          padding-right: 5px;
+        }
+        #feedContents {
+          padding: 5px;
+        }
+      }
+      #feedCommentsListContainer {
+        .commentSpan {
+          padding-right: 10px;
+          padding-left: 10px;
+        }
+
+        .commentLi {
+          display: flex;
+          justify-content: space-between;
+        }
+
+        li {
+          list-style: none;
+          line-height: 1px;
+          padding-left: 1px;
+        }
+      }
+      #makingCommentContainer {
+        display: flex;
+        justify-content: space-between;
+        #smileIcon {
+          width: 10%;
+          margin: 15px;
+        }
+        #makingComment {
+          width: 90%;
+          height: 45px;
+          border: none;
+        }
+      }
+    }
+  }
+
+  div.main-right {
+    float: left;
+    height: auto;
+    min-height: 200px;
+    width: 30%;
+    margin: 10px;
+    margin-top: 30px;
+    border-style: solid;
+    border-color: #dbdbdb;
+    border-width: thin;
+    border-radius: 1%;
+
+    #main-rightFeedProfileContainer {
+      display: flex;
+
+      #main-rightFeedProfilePhoto {
+        float: left;
+        margin: 3px;
+        width: 55px;
+        border-radius: 70%;
+        border-color: #dbdbdb;
+        border-style: solid;
+        border-width: 1px;
+      }
+
+      #main-rightFeedProfileAccount {
+        float: left;
+        padding: 15px;
+      }
+    }
+
+    .story {
+      #recommandedAccount {
+        // display: flex;
+        // margin: 5px;
+
+        .recommandedAccountHeader {
+          #recommandedAccountHeaderText {
+            display: flex;
+            justify-content: space-around;
+            #recommandedAccountForMe {
+              padding-top: 20px;
+              padding-bottom: 20px;
+            }
+            #seeAll {
+              padding-top: 20px;
+              padding-bottom: 20px;
+            }
+          }
+          .recommandedAccountList {
+            .recommandedAccount {
+              margin-top: 20px;
+              margin-bottom: 20px;
+              margin: 5px;
+              height: 50px;
+              img.recommandedAccountPhoto {
+                width: 40px;
+                border-radius: 70%;
+                border-color: #dbdbdb;
+                border-style: solid;
+                border-width: 1px;
+                float: left;
+              }
+              span.recommandedAccountId {
+                float: left;
+                padding: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

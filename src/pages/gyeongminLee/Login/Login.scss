@@ -1,0 +1,64 @@
+@font-face {
+  font-family: 'Lobster', cursive;
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+}
+
+.container {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  margin-left: -200px;
+  margin-top: -200px;
+  text-align: center;
+  left: 50%;
+  top: 50%;
+  border-style: solid;
+  border-color: gray;
+
+  #logo {
+    margin: 10px;
+    padding: 10px;
+    height: 120px;
+    font-family: 'Lobster', cursive;
+    font-size: 60px;
+  }
+
+  #login-form {
+    display: inline-block;
+    height: 140px;
+    width: 380px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 10px;
+
+    .text {
+      height: 38px;
+      width: 300px;
+      border-radius: 1px;
+    }
+
+    #password {
+      margin: 10px;
+    }
+
+    #loginButton {
+      margin: 10px;
+    }
+
+    #loginButton {
+      margin: 15px;
+      padding: 0;
+      height: 35px;
+      width: 300px;
+      position: relative;
+      //border-radius: 0.5%;
+    }
+
+    #askinghelp {
+      margin: 20px;
+      position: absolute;
+    }
+  }
+}
