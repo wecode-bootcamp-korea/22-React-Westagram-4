@@ -38,14 +38,17 @@
           // width: 100%; // link 컴포넌트로 연결해줄때
           margin-top: 10px;
           padding: 9px 8px 7px;
-          background-color: #c0dffd;
           border: none;
           border-radius: 3px;
           color: #fff;
+        }
 
-          .inputIdAndPw {
-            background-color: #0096f6;
-          }
+        .inputNone {
+          background-color: #c0dffd;
+        }
+
+        .inputIdAndPw {
+          background-color: #0096f6;
         }
       }
     }

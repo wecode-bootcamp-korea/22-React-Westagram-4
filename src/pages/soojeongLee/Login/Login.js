@@ -13,12 +13,9 @@ class Login extends Component {
       // default 값 부여
       id: '',
       pw: '',
+      isButtonOn: false,
     };
   }
-
-  goToMain = () => {
-    this.props.history.push('/main-Soojeong#');
-  };
 
   handleInputId = event => {
     this.setState({
@@ -32,8 +29,31 @@ class Login extends Component {
     });
   };
 
+  isButtonOn = () => {
+    if (
+      this.state.id.includes('@') &&
+      this.state.id.length >= 5 &&
+      this.state.pw.length >= 8
+    ) {
+      this.setState({
+        isButtonOn: true,
+      });
+    } else {
+      this.setState({
+        isButtonOn: false,
+      });
+    }
+  };
+
+  goToMain = () => {
+    if (this.state.isButtonOn === true) {
+      this.props.history.push('/main-Soojeong#');
+    } else {
+      alert(`❗️아이디와 비밀번호를 확인해주세요❗️`);
+    }
+  };
+
   render() {
-    console.log('handleinput>>>', this.state.handleInput);
     return (
       <div className="Login">
         <main>
@@ -43,7 +63,7 @@ class Login extends Component {
 
           <section className="loginInputBox">
             <h2 className="sr-only">login page</h2>
-            <form action="">
+            <form action="" onKeyUp={this.isButtonOn}>
               <input
                 onChange={this.handleInputId}
                 type="text"
@@ -61,7 +81,11 @@ class Login extends Component {
               <button
                 onClick={this.goToMain}
                 type="button"
-                className="loginBtn"
+                className={
+                  this.state.isButtonOn
+                    ? 'loginBtn inputIdAndPw'
+                    : 'loginBtn inputNone'
+                }
               >
                 로그인
               </button>
