@@ -1,7 +1,20 @@
 import React, { Component } from 'react';
 import './Login.scss';
 class Login extends Component {
+  handleIdInput = event => {
+    this.setState({
+      idValue: event.target.value,
+    });
+  };
+
+  handlePasswordInput = event => {
+    this.setState({
+      passwordValue: event.target.value,
+    });
+  };
+
   render() {
+    console.log(this.state);
     return (
       <>
         <div className="container">
@@ -11,6 +24,7 @@ class Login extends Component {
 
           <form id="login-form">
             <input
+              onChange={this.handleIdInput}
               type="text"
               className="text"
               id="id"
@@ -19,6 +33,7 @@ class Login extends Component {
             />
 
             <input
+              onChange={this.handlePasswordInput}
               type="password"
               className="text"
               id="password"
