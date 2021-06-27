@@ -7,6 +7,39 @@ import Nav from '../../../components/Nav/Nav';
 import './Main.scss';
 
 class Main extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      // 초기셋팅
+      comment: '',
+      commentList: [],
+    };
+  }
+
+  hadComment = event => {
+    //input 값 입력되었을 때
+    this.setState({
+      comment: event.target.value,
+    });
+  };
+
+  submitComent = event => {
+    //button을 클릭했을 때
+    event.preventDefault();
+    this.setState({
+      commentList: this.state.commentList.concat([this.state.comment]), // 댓글 추가
+      comment: '', // 인풋 밸류 초기화
+    });
+  };
+
+  // ❗️ 충돌 발생
+  // handleKeyPress = event => {
+  //   //input 창에서 enter press 했을 때
+  //   if (event.key === 'Enter') {
+  //     this.submitComent();
+  //   }
+  // };
+
   render() {
     return (
       <div className="Main">
@@ -55,20 +88,36 @@ class Main extends React.Component {
                   나의 새로운 취미 ✂️
                   <span className="postTime">54분 전</span>
                 </p>
-                <ul id="commnetBox"></ul>
+                <ul id="commnetBox">
+                  {this.state.commentList.map((comment, index) => {
+                    return (
+                      <li key={index}>
+                        <Link className="commentUserId">eessoo__</Link>
+                        {comment}
+                      </li>
+                    );
+                  })}
+                </ul>
               </section>
               <footer>
-                <div className="inputBox">
+                <form className="inputBox">
                   <input
+                    onChange={this.hadComment}
+                    onKeyPress={this.handleKeyPress}
                     id="userComment"
                     className="comment"
+                    value={this.state.comment}
                     type="text"
                     placeholder="댓글 달기..."
                   />
-                  <button className="commentSubmit" type="submit">
+                  <button
+                    onClick={this.submitComent}
+                    className="commentSubmit"
+                    type="submit"
+                  >
                     게시
                   </button>
-                </div>
+                </form>
               </footer>
             </article>
           </div>
@@ -191,7 +240,7 @@ class Main extends React.Component {
                         src="images/soojeongLee/user7.jpg"
                       />
                     </Link>
-                    <Link href="#">
+                    <Link>
                       mornstar_nail
                       <span className="followReco">
                         effie_yxz님 외 3명이 팔로우합니다
@@ -214,31 +263,31 @@ class Main extends React.Component {
                   <Link>도움말</Link>
                 </li>
                 <li>
-                  <Link href="#">홍보 센터</Link>
+                  <Link>홍보 센터</Link>
                 </li>
                 <li>
-                  <Link href="#">API</Link>
+                  <Link>API</Link>
                 </li>
                 <li>
-                  <Link href="#">채용 정보</Link>
+                  <Link>채용 정보</Link>
                 </li>
                 <li>
-                  <Link href="#">개인정보처리방침</Link>
+                  <Link>개인정보처리방침</Link>
                 </li>
                 <li>
-                  <Link href="#">약관</Link>
+                  <Link>약관</Link>
                 </li>
                 <li>
-                  <Link href="#">위치</Link>
+                  <Link>위치</Link>
                 </li>
                 <li>
-                  <Link href="#">인기 계정</Link>
+                  <Link>인기 계정</Link>
                 </li>
                 <li>
-                  <Link href="#">해시태그</Link>
+                  <Link>해시태그</Link>
                 </li>
                 <li>
-                  <Link href="#">언어</Link>
+                  <Link>언어</Link>
                 </li>
               </ul>
               <span className="copyright">© 2021 INSTAGRAM FROM FACEBOOK</span>
