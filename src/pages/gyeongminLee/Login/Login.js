@@ -1,20 +1,44 @@
 import React, { Component } from 'react';
 import './Login.scss';
 class Login extends Component {
-  handleIdInput = event => {
-    this.setState({
-      idValue: event.target.value,
-    });
+  constructor() {
+    super();
+    this.state = {
+      buttonColor: '#B2DFFC',
+      idValue: '',
+      passwordValue: '',
+    };
+  }
+
+  controlValue = event => {
+    if (event.target.type === 'text') {
+      this.setState({
+        idValue: event.target.value,
+      });
+    } else if (event.target.type === 'password') {
+      this.setState({
+        passwordValue: event.target.value,
+      });
+    }
   };
 
-  handlePasswordInput = event => {
-    this.setState({
-      passwordValue: event.target.value,
-    });
+  controlActivation = () => {
+    if (
+      this.state.idValue.includes('@') &&
+      this.state.passwordValue.length >= 5
+    ) {
+      this.setState({
+        buttonColor: '#0095F6',
+      });
+    } else {
+      this.setState({
+        buttonColor: '#B2DFFC',
+      });
+    }
   };
 
   render() {
-    console.log(this.state);
+    console.log(this.setState);
     return (
       <>
         <div className="container">
@@ -22,25 +46,29 @@ class Login extends Component {
             <a id="logo">westagram</a>
           </form>
 
-          <form id="login-form">
+          <form id="login-form" onKeyUp={this.controlActivation}>
             <input
-              onChange={this.handleIdInput}
+              onChange={this.controlValue}
               type="text"
               className="text"
               id="id"
-              name="id"
               placeholder="전화번호,사용자 이름 또는 이메일"
             />
 
             <input
-              onChange={this.handlePasswordInput}
+              onChange={this.controlValue}
               type="password"
               className="text"
               id="password"
               placeholder="비밀번호"
             />
 
-            <button type="button" id="loginButton" disabled>
+            <button
+              style={{ backgroundColor: this.state.buttonColor }}
+              type="button"
+              id="loginButton"
+              disabled
+            >
               로그인
             </button>
           </form>
