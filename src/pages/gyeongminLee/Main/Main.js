@@ -5,7 +5,91 @@ import React from 'react';
 import Nav from '../../../components/Nav/Nav';
 import './Main.scss';
 class Main extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      submitButtonColor: 'none',
+      // submitButtonDisabled: 'true',
+      newCommentValue: '',
+
+      list: [],
+    };
+  }
+
+  controlComment = event => {
+    if (event.target.type === 'text') {
+      this.setState({
+        newCommentValue: event.target.value,
+      });
+    }
+  };
+  controlButton = event => {
+    if (event.target.type === 'button') {
+      this.setState({
+        submitButtonColor: event.target.backgroundColor,
+      });
+    }
+  };
+  // submitButtonDisabled = event => {
+  //   if (event.target.type === 'button') {
+  //     this.setState({
+  //       submitButtonDisabled: event.target.disabled,
+  //     });
+  //   }
+  // };
+
+  handleKeyPress = e => {
+    if (e.key === 'Enter') {
+      //this.state.list.push(this.state.newCommentValue); // 들어가짐
+
+      //const [list, newCommentValue] = this.state; // 이 부분이 이상함
+      this.setState({
+        list: this.state.list.concat(
+          //num: this.num,
+          //newCommentValue: newCommentValue,
+          [this.state.newCommentValue]
+        ),
+
+        newCommentValue: '',
+      });
+      //this.num += 1;
+    }
+  };
+  activateSubmitButton = e => {
+    if (this.state.newCommentValue.length > 0) {
+      this.setState({
+        submitButtonColor: '#0095F6',
+        submitButtonDisabled: false,
+      });
+    } else {
+      this.setState({
+        submitButtonColor: '#B2DFFC',
+        submitButtonDisabled: true,
+      });
+    }
+    this.handleKeyPress(e);
+  };
+
+  // handleRemove = num => {
+  //   const { list } = this.state;
+  //   const nextList = list.filter(item => {
+  //     return item.num !== num;
+  //   });
+  //   this.setState({ list: nextList });
+  // };
+
+  // handleCreate = () => {
+  //   const { newCommentValue, list } = this.state;
+  //   this.setState({
+  //     list: list.add(newCommentValue),
+  //   });
+  // };
   render() {
+    //const { newCommentValue, list } = this.state;
+
+    //console.log(this.state.submitButtonColor);
+    //console.log(this.state.list); //리스트에는 들어감, 그런데 엔터칠때마다 인풋창이 비워지지 않음
+    //console.log(this.state.newCommentValue);
     return (
       <>
         <Nav />
@@ -59,14 +143,36 @@ class Main extends React.Component {
                 <span id="feedContentsId">glorious_min</span>
                 <span id="feedContents">사진 찍었다.</span>
               </div>
-              <div className="feedCommentsListContainer"></div>
-              <div id="makingCommentContainer">
+              <div className="feedCommentsListContainer">
+                {this.state.list.map(item => {
+                  return (
+                    <li>
+                      <span>{item}</span>
+                      <button>x</button>
+                    </li>
+                  );
+                })}
+              </div>
+              <div
+                id="makingCommentContainer"
+                onKeyUp={this.activateSubmitButton}
+              >
                 <i id="smileIcon" class="far fa-smile"></i>
                 <input
                   type="text"
                   id="makingComment"
                   placeholder="댓글을 입력하세요"
+                  onKeyUp={this.controlComment}
                 />
+                <button
+                  onChange={this.controlButton}
+                  style={{ backgroundColor: this.state.submitButtonColor }}
+                  type="button"
+                  id="submitCommentButton"
+                  disabled //={this.submitButtonDisabled}
+                >
+                  게시
+                </button>
               </div>
             </article>
           </div>
