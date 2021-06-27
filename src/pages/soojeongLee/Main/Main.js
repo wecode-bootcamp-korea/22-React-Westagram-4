@@ -92,12 +92,8 @@ class Main extends React.Component {
                   <span className="postTime">54분 전</span>
                 </p>
                 <ul id="commnetBox">
-                  {this.state.commentList.map((anything, index) => {
-                    console.log(
-                      'element에 그냥 넣어본값 : input value 값>>>',
-                      anything
-                    );
-                    return <Commnet aaa={anything} key={index} />; // element가 무슨역할을 하는지 모르겠어
+                  {this.state.commentList.map((commnetComponent, index) => {
+                    return <Commnet value={commnetComponent} key={index} />;
                   })}
                 </ul>
               </section>
