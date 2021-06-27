@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 
 // 컴포넌트
 import Nav from '../../../components/Nav/Nav';
+import Commnet from '../Main/Commnet/Commnet';
+
+// 스타일
 import './Main.scss';
 
 class Main extends React.Component {
@@ -89,13 +92,12 @@ class Main extends React.Component {
                   <span className="postTime">54분 전</span>
                 </p>
                 <ul id="commnetBox">
-                  {this.state.commentList.map((comment, index) => {
-                    return (
-                      <li key={index}>
-                        <Link className="commentUserId">eessoo__</Link>
-                        {comment}
-                      </li>
+                  {this.state.commentList.map((anything, index) => {
+                    console.log(
+                      'element에 그냥 넣어본값 : input value 값>>>',
+                      anything
                     );
+                    return <Commnet aaa={anything} key={index} />; // element가 무슨역할을 하는지 모르겠어
                   })}
                 </ul>
               </section>
@@ -103,7 +105,7 @@ class Main extends React.Component {
                 <form className="inputBox">
                   <input
                     onChange={this.hadComment}
-                    onKeyPress={this.handleKeyPress}
+                    onKeyUp={this.handleKeyPress}
                     id="userComment"
                     className="comment"
                     value={this.state.comment}

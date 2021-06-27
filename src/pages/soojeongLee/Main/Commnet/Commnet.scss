@@ -1,0 +1,11 @@
+#commnetBox {
+  li {
+    padding: 5px 10px;
+    font-size: 14px;
+
+    .commentUserId {
+      margin-right: 5px;
+      font-weight: bold;
+    }
+  }
+}
