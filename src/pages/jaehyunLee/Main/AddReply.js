@@ -5,12 +5,6 @@ export class AddReply extends Component {
     content: '',
   };
 
-  // setReply = e => {
-  //   e.preventDefault();
-  //   this.props.addReply(e.target.value);
-  //   // this.setState({ content: e.target.value });
-  // };
-
   setReply = e => {
     if (e.key === 'Enter') {
       this.props.addReply(e.target.value);

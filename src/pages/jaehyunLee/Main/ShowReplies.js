@@ -6,7 +6,7 @@ export class ShowReplies extends Component {
   };
 
   render() {
-    const { id, userName, content } = this.props.replies;
+    const { userName, content } = this.props.replies;
 
     return (
       <div className="ReplyBar">
@@ -16,17 +16,13 @@ export class ShowReplies extends Component {
         </div>
         <div>
           <img
-            className={
-              this.props.replies.isLike ? 'none ' + 'delete' : '' + 'delete'
-            }
+            className={this.props.replies.isLike ? `delete` : `none delete`}
             src="./images/jaehyunLee/Main/like.png"
             alt=""
             onClick={this.props.doLike.bind(this, this.props.replies.id)}
           />
           <img
-            className={
-              this.props.replies.isLike ? ' ' + 'delete' : 'none' + ' delete'
-            }
+            className={this.props.replies.isLike ? `none delete` : `delete`}
             src="./images/jaehyunLee/Main/islike.png"
             alt=""
             onClick={this.props.doLike.bind(this, this.props.replies.id)}

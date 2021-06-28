@@ -1,3 +1,5 @@
+@import '../../../styles/variables.scss';
+
 body {
   display: flex;
   flex-direction: column;
@@ -5,44 +7,6 @@ body {
   background-color: #fafafa;
   height: 1000vh;
   width: 100vw;
-}
-
-#navMain {
-  display: flex;
-  justify-content: center;
-  background-color: #ffffff;
-  width: 110%;
-  border-bottom: 2px #ececec solid;
-}
-
-#navBar {
-  display: flex;
-
-  justify-content: space-between;
-  background-color: #ffffff;
-
-  padding: 0px;
-  width: 1100px;
-  height: 80px;
-}
-
-.navBarLeft {
-  display: flex;
-  align-items: center;
-}
-
-.navBarLeft h1 {
-  font-weight: 100;
-  font-size: 45px;
-}
-
-.navBarLeft span {
-  font-size: 40px;
-  letter-spacing: -2px;
-}
-
-.navBarLeft i {
-  font-size: 40px;
 }
 
 .navBarCenter {
@@ -71,10 +35,13 @@ body {
   border: 2px #ececec solid;
   background-color: #ffffff;
   display: flex;
+  flex-direction: column;
   margin-right: 20px;
+  flex: 7;
 }
 
 .mainRight {
+  flex: 3;
 }
 
 .myAccount {
@@ -101,9 +68,6 @@ body {
   align-items: center;
   justify-content: space-between;
   height: 40px;
-}
-
-.storyBody {
 }
 
 .otherAccount {

@@ -4,6 +4,7 @@ import React from 'react';
 // 컴포넌트
 import Reply from './Reply';
 import Nav from '../../../components/Nav/Nav';
+import Feed from './Feed';
 
 import './Main.scss';
 
@@ -20,6 +21,8 @@ class Main extends React.Component {
       isLike: true,
     };
     this.setState({ replies: [...this.state.replies, newReply] });
+    console.log(this.state);
+    // this.setState({ replies: this.state.replies.push(newReply) });
   };
 
   delReply = id => {
@@ -42,69 +45,20 @@ class Main extends React.Component {
 
   render() {
     return (
-      <div>
+      <div class="flex-center">
         <Nav />
         <main class="mainDiv">
           <div class="feeds">
-            <article id="article">
-              <div class="feedTop">
-                <div class="whoIsUploader">
-                  <img
-                    alt=""
-                    class="profile"
-                    src="./images/jaehyunLee/Main/psa.png"
-                  />
-                  <span>dlwlrma</span>
-                </div>
-                <i class="fas fa-ellipsis-h"></i>
-              </div>
-              <article class="feedImage">
-                <img alt="" src="./images/jaehyunLee/Main/iu2.jpg" />
-              </article>
-              <div class="feedAddOn">
-                <div class="feedAddOnLeft">
-                  <i class="far fa-heart likeFeedBtn"></i>
-                  <i class="none fas fa-heart hateFeedBtn"></i>
-                  <i class="far fa-comment"></i>
-                  <i class="fas fa-share-alt"></i>
-                </div>
-                <div class="feedAddOnRight">
-                  <i class="far fa-bookmark addToFav"></i>
-                  <i class="none fas fa-bookmark delOfFav"></i>
-                </div>
-              </div>
-              <div class="numOfLikesMain">
-                <div class="numOfLikes">
-                  <img
-                    alt=""
-                    class="profile"
-                    src="./images/jaehyunLee/Main/psa.png"
-                  />
-
-                  <span>aineworld님 외 10명이 좋아합니다.</span>
-                </div>
-              </div>
-              <div class="replies">
-                <div class="reply">
-                  <p>canon_mj 위워크에서 진행한 베이킹 클래스...</p>
-                </div>
-                <div class="reply">
-                  <p>neceosecius 거봐 좋았잖아~~~~</p>
-                </div>
-                <div class="reply">
-                  <p>42분 전</p>
-                </div>
-                <Reply
-                  replies={this.state.replies}
-                  addReply={this.addReply}
-                  delReply={this.delReply}
-                  doLike={this.doLike}
-                />
-              </div>
-            </article>
+            <Feed />
+            <Reply
+              replies={this.state.replies}
+              addReply={this.addReply}
+              delReply={this.delReply}
+              doLike={this.doLike}
+            />
           </div>
 
-          <div class="mainRight">
+          <div class="mainRight main-right-media">
             <div class="myAccount">
               <img
                 alt=""
