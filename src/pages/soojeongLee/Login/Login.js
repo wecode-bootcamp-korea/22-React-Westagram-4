@@ -65,6 +65,7 @@ class Login extends Component {
             <h2 className="sr-only">login page</h2>
             <form action="" onKeyUp={this.isButtonOn}>
               <input
+                autoComplete="off"
                 onChange={this.handleInputId}
                 type="text"
                 id="loginId"

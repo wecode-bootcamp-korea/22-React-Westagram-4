@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 
 // 컴포넌트
 import Nav from '../../../components/Nav/Nav';
-import Commnet from '../Main/Commnet/Commnet';
+// import Commnet from '../Main/Commnet/Commnet';
+import Feed from '../Main/Feed/Feed';
+// import COMMENT from '../Main/Commnet/commentData';
 
 // 스타일
 import './Main.scss';
@@ -13,35 +15,23 @@ class Main extends React.Component {
   constructor() {
     super();
     this.state = {
-      // 초기셋팅
-      comment: '',
-      commentList: [],
+      feedList: [],
     };
   }
 
-  hadComment = event => {
-    //input 값 입력되었을 때
-    this.setState({
-      comment: event.target.value,
-    });
-  };
-
-  submitComent = event => {
-    //button을 클릭했을 때
-    event.preventDefault();
-    this.setState({
-      commentList: this.state.commentList.concat([this.state.comment]), // 댓글 추가
-      comment: '', // 인풋 밸류 초기화
-    });
-  };
-
-  // ❗️ 충돌 발생
-  // handleKeyPress = event => {
-  //   //input 창에서 enter press 했을 때
-  //   if (event.key === 'Enter') {
-  //     this.submitComent();
-  //   }
-  // };
+  // fetch의 짝궁
+  componentDidMount() {
+    fetch('http://localhost:3000/data/soojeonglee/feedData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          feedList: data,
+        });
+        // console.log(`feedList data>>>`, data);// 페칭 할때 콘솔로 데이터 들어오는지 확인하기!
+      });
+  }
 
   render() {
     return (
@@ -49,75 +39,16 @@ class Main extends React.Component {
         <Nav />
         <main>
           <div className="feeds">
-            <article>
-              <header>
-                <h1>
-                  <Link className="contentHeader"></Link>
-                  <Link className="userName">eessoo__</Link>
-                </h1>
-                <button className="ellipsis" type="button">
-                  <i className="fas fa-ellipsis-h ellipsisIcon"></i>
-                </button>
-              </header>
-              <section className="feedContent">
-                <img alt="feedImage" src="images/soojeongLee/feedImage.jpg" />
-                <ul className="reactionsBox">
-                  <li className="reactionsLeft">
-                    <button type="button">
-                      <i className="far fa-heart"></i>
-                    </button>
-                    <button type="button">
-                      <i className="far fa-comment"></i>
-                    </button>
-                    <button type="button">
-                      <i className="fas fa-external-link-alt"></i>
-                    </button>
-                  </li>
-                  <li className="reactionsRight">
-                    <button>
-                      <i className="far fa-bookmark"></i>
-                    </button>
-                  </li>
-                </ul>
-                <h2>
-                  <Link className="userProfile feedConUser"></Link>
-                  <b>eessoo__</b>님 외
-                  <button>
-                    <b> 7명</b>
-                  </button>
-                  이 좋아합니다.
-                </h2>
-                <p className="feedText">
-                  나의 새로운 취미 ✂️
-                  <span className="postTime">54분 전</span>
-                </p>
-                <ul id="commnetBox">
-                  {this.state.commentList.map((commnetComponent, index) => {
-                    return <Commnet value={commnetComponent} key={index} />;
-                  })}
-                </ul>
-              </section>
-              <footer>
-                <form className="inputBox">
-                  <input
-                    onChange={this.hadComment}
-                    onKeyUp={this.handleKeyPress}
-                    id="userComment"
-                    className="comment"
-                    value={this.state.comment}
-                    type="text"
-                    placeholder="댓글 달기..."
-                  />
-                  <button
-                    onClick={this.submitComent}
-                    className="commentSubmit"
-                    type="submit"
-                  >
-                    게시
-                  </button>
-                </form>
-              </footer>
-            </article>
+            {this.state.feedList.map(feed => {
+              return (
+                <Feed
+                  key={feed.id}
+                  userName={feed.userName}
+                  src={feed.src}
+                  feedText={feed.feedText}
+                />
+              );
+            })}
           </div>
           <div className="main-right">
             <header className="userAccount">
@@ -252,7 +183,7 @@ class Main extends React.Component {
               </ul>
             </aside>
 
-            <footer>
+            <footer className="main-right-footer">
               <ul className="footList">
                 <li>
                   <Link>소개</Link>

@@ -8,132 +8,7 @@
     background-color: $gray-color;
     .feeds {
       flex: 7;
-      background-color: #ffffff;
-      border-radius: 3px;
-      border: 1px solid $border-color;
-
-      article {
-        header {
-          @include flex-center;
-          justify-content: space-between;
-          align-content: center;
-          padding: 10px;
-
-          h1 {
-            @include flex-center;
-
-            .contentHeader {
-              @include userProfile;
-              margin-right: 10px;
-              background-image: url('http://localhost:3000/images/soojeongLee/userImage.jpg');
-              background-size: cover;
-            }
-            .userName {
-              font-size: 16px;
-              font-weight: 600;
-            }
-          }
-
-          .ellipsis {
-            @include button;
-            font-size: 22px;
-            .ellipsisIcon {
-              font-weight: 400;
-            }
-          }
-        }
-
-        .feedContent {
-          img {
-            width: 100%;
-          }
-
-          .reactionsBox {
-            @include flex-center;
-            justify-content: space-between;
-            padding: 5px 10px;
-
-            .reactionsLeft {
-              display: flex;
-
-              button {
-                @include button;
-                font-size: 22px;
-                margin-right: 10px;
-                .fa-external-link-alt {
-                  font-size: 20px;
-                }
-              }
-            }
-
-            .reactionsRight {
-              button {
-                @include button;
-                font-size: 22px;
-              }
-            }
-          }
-
-          h2 {
-            display: flex;
-            align-items: center;
-            padding: 0 10px 10px;
-            font-size: 16px;
-            font-weight: normal;
-
-            .feedConUser {
-              @include userProfile;
-              margin-right: 5px;
-              background-image: url('http://localhost:3000/images/soojeongLee/user7.jpg');
-              background-size: cover;
-            }
-
-            button {
-              @include button;
-              margin-left: 4px;
-              font-size: 16px;
-            }
-          }
-
-          .feedText {
-            margin-bottom: 10px;
-            padding: 0 10px;
-
-            .postTime {
-              @include postTime;
-              margin-top: 5px;
-              font-size: 14px;
-              font-weight: bold;
-            }
-          }
-        }
-      }
-
-      footer {
-        background-color: #fff;
-        border-top: 1px solid $gray-color;
-
-        .inputBox {
-          display: flex;
-          padding: 10px;
-
-          .comment {
-            flex: 9;
-            padding: 7px 0;
-            border: none;
-            outline: none;
-          }
-
-          .commentSubmit {
-            @include button;
-            flex: 1;
-            text-align: right;
-            &:hover {
-              color: $summit-color;
-            }
-          }
-        }
-      }
+      background-color: $gray-color;
     }
 
     .main-right {
@@ -184,7 +59,7 @@
             margin-bottom: 5px;
             font-size: 14px;
             font-weight: normal;
-            color: $gray-color;
+            color: $border-color;
           }
 
           .btnTextColor {
@@ -242,7 +117,7 @@
 
               .followReco {
                 display: block;
-                color: $gray-color;
+                color: $border-color;
                 font-size: 14px;
                 font-weight: normal;
               }
@@ -259,7 +134,9 @@
     }
   }
 
-  footer {
+  .main-right-footer {
+    display: flex;
+    flex-direction: column;
     .footList {
       margin-right: 5px;
 

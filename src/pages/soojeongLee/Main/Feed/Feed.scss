@@ -1,0 +1,128 @@
+@import '../../../../styles/variables.scss';
+
+article {
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 3px;
+  border: 1px solid $border-color;
+
+  header {
+    @include flex-center;
+    justify-content: space-between;
+    align-content: center;
+    padding: 10px;
+
+    h1 {
+      @include flex-center;
+
+      .contentHeader {
+        @include userProfile;
+        margin-right: 10px;
+        background-image: url('http://localhost:3000/images/soojeongLee/userImage.jpg');
+        background-size: cover;
+      }
+      .userName {
+        font-size: 16px;
+        font-weight: 600;
+      }
+    }
+
+    .ellipsis {
+      @include button;
+      font-size: 22px;
+      .ellipsisIcon {
+        font-weight: 400;
+      }
+    }
+  }
+
+  .feedContent {
+    img {
+      width: 100%;
+    }
+
+    .reactionsBox {
+      @include flex-center;
+      justify-content: space-between;
+      padding: 5px 10px;
+
+      .reactionsLeft {
+        display: flex;
+
+        button {
+          @include button;
+          font-size: 22px;
+          margin-right: 10px;
+          .fa-external-link-alt {
+            font-size: 20px;
+          }
+        }
+      }
+
+      .reactionsRight {
+        button {
+          @include button;
+          font-size: 22px;
+        }
+      }
+    }
+
+    h2 {
+      display: flex;
+      align-items: center;
+      padding: 0 10px 10px;
+      font-size: 16px;
+      font-weight: normal;
+
+      .feedConUser {
+        @include userProfile;
+        margin-right: 5px;
+        background-image: url('http://localhost:3000/images/soojeongLee/user7.jpg');
+        background-size: cover;
+      }
+
+      button {
+        @include button;
+        margin-left: 4px;
+        font-size: 16px;
+      }
+    }
+
+    .feedText {
+      margin-bottom: 10px;
+      padding: 0 10px;
+
+      .postTime {
+        @include postTime;
+        margin-top: 5px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
+  }
+
+  footer {
+    display: flex;
+    background-color: #fff;
+    border-top: 1px solid $border-color;
+
+    .inputBox {
+      flex: 9;
+      padding: 10px;
+
+      .comment {
+        width: 100%;
+        border: none;
+        outline: none;
+      }
+    }
+
+    .commentSubmit {
+      @include button;
+      flex: 1;
+      &:hover {
+        color: $summit-color;
+      }
+    }
+  }
+}

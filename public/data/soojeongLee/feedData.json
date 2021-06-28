@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "userName": "eessoo__",
+    "src": "../images/soojeongLee/user2.jpg",
+    "feedText": "💟"
+  },
+  {
+    "id": 2,
+    "userName": "zz_ing94",
+    "src": "../../images/soojeongLee/user3.jpg",
+    "feedText": "Toy story 💚"
+  },
+  {
+    "id": 3,
+    "userName": "hwayoonci",
+    "src": "../../images/soojeongLee/user4.jpg",
+    "feedText": "오늘의 일기"
+  },
+  {
+    "id": 4,
+    "userName": "cosz_zy",
+    "src": "../../images/soojeongLee/user5.jpg",
+    "feedText": "수채화 그림"
+  }
+]

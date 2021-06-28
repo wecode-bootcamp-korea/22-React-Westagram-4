@@ -9,8 +9,8 @@ export class Commnet extends Component {
     return (
       <div>
         <li>
-          <Link className="commentUserId">eessoo__</Link>
-          {this.props.value}
+          <Link className="commentUserId">{this.props.name} </Link>
+          <span>{this.props.comment}</span>
         </li>
       </div>
     );
