@@ -2,45 +2,15 @@
 import React from 'react';
 
 // 컴포넌트
-import Reply from './Reply';
 import Nav from '../../../components/Nav/Nav';
-import Feed from './Feed';
+import Feeds from './Feeds';
 
 import './Main.scss';
 
 class Main extends React.Component {
   state = {
     replies: [],
-  };
-
-  addReply = content => {
-    const newReply = {
-      id: Math.random(),
-      userName: '재현',
-      content: ' ' + content,
-      isLike: true,
-    };
-    this.setState({ replies: [...this.state.replies, newReply] });
-    console.log(this.state);
-    // this.setState({ replies: this.state.replies.push(newReply) });
-  };
-
-  delReply = id => {
-    this.setState({
-      replies: [...this.state.replies.filter(x => x.id !== id)],
-    });
-  };
-
-  doLike = id => {
-    console.log(id);
-    this.setState({
-      replies: this.state.replies.map(reply => {
-        if (reply.id === id) {
-          reply.isLike = !reply.isLike;
-        }
-        return reply;
-      }),
-    });
+    feeds: [],
   };
 
   render() {
@@ -48,15 +18,7 @@ class Main extends React.Component {
       <div class="flex-center">
         <Nav />
         <main class="mainDiv">
-          <div class="feeds">
-            <Feed />
-            <Reply
-              replies={this.state.replies}
-              addReply={this.addReply}
-              delReply={this.delReply}
-              doLike={this.doLike}
-            />
-          </div>
+          <Feeds />
 
           <div class="mainRight main-right-media">
             <div class="myAccount">
