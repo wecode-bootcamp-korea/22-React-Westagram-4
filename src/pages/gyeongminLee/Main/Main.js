@@ -17,9 +17,12 @@ class Main extends React.Component {
   }
   controlComment = event => {
     if (event.target.type === 'text') {
-      this.setState({
-        newCommentValue: event.target.value,
-      });
+      this.setState(
+        {
+          newCommentValue: event.target.value,
+        },
+        () => this.activateSubmitButton(event)
+      );
     }
   };
   controlButton = event => {
