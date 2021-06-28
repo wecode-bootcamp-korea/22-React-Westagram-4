@@ -1,5 +1,6 @@
 // 필수
 import React from 'react';
+import Comment from './Comment/Comment';
 
 // 컴포넌트
 import Nav from '../../../components/Nav/Nav';
@@ -45,12 +46,12 @@ class Main extends React.Component {
       //const [list, newCommentValue] = this.state; // 이 부분이 이상함
       this.setState({
         list: this.state.list.concat(
-          //num: this.num,
+          //  num : this.num,
           //newCommentValue: newCommentValue,
           [this.state.newCommentValue]
         ),
 
-        newCommentValue: '',
+        // newCommentValue: '',
       });
       //this.num += 1;
     }
@@ -84,12 +85,20 @@ class Main extends React.Component {
   //     list: list.add(newCommentValue),
   //   });
   // };
-  render() {
-    //const { newCommentValue, list } = this.state;
 
-    //console.log(this.state.submitButtonColor);
-    //console.log(this.state.list); //리스트에는 들어감, 그런데 엔터칠때마다 인풋창이 비워지지 않음
-    //console.log(this.state.newCommentValue);
+  // function Comment (props){
+  //   const comment = props.list;
+  //   const commentList = list.map(item => {
+  //     return  (<li>
+  //     <span>{props}</span>
+  //     <button>x</button>
+  //   </li>
+  //   );
+  //   }
+
+  // }
+
+  render() {
     return (
       <>
         <Nav />
@@ -144,13 +153,8 @@ class Main extends React.Component {
                 <span id="feedContents">사진 찍었다.</span>
               </div>
               <div className="feedCommentsListContainer">
-                {this.state.list.map(item => {
-                  return (
-                    <li>
-                      <span>{item}</span>
-                      <button>x</button>
-                    </li>
-                  );
+                {this.state.list.map((item, i) => {
+                  return <Comment comment={item} key={i} />;
                 })}
               </div>
               <div
