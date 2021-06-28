@@ -9,8 +9,8 @@ class Main extends React.Component {
   constructor() {
     super();
     this.state = {
-      submitButtonColor: 'none',
-      // submitButtonDisabled: 'true',
+      submitButtonColor: '#B2DFFC',
+      submitButtonDisabled: 'true',
       newCommentValue: '',
 
       list: [],
@@ -24,13 +24,14 @@ class Main extends React.Component {
       });
     }
   };
-  controlButton = event => {
-    if (event.target.type === 'button') {
-      this.setState({
-        submitButtonColor: event.target.backgroundColor,
-      });
-    }
-  };
+
+  // controlButton = event => {
+  //   if (event.target.type === 'button') {
+  //     this.setState({
+  //       submitButtonColor: event.target.backgroundColor,
+  //     });
+  //   }
+  // };
   // submitButtonDisabled = event => {
   //   if (event.target.type === 'button') {
   //     this.setState({
@@ -41,22 +42,15 @@ class Main extends React.Component {
 
   handleKeyPress = e => {
     if (e.key === 'Enter') {
-      //this.state.list.push(this.state.newCommentValue); // 들어가짐
-
-      //const [list, newCommentValue] = this.state; // 이 부분이 이상함
       this.setState({
-        list: this.state.list.concat(
-          //  num : this.num,
-          //newCommentValue: newCommentValue,
-          [this.state.newCommentValue]
-        ),
+        list: this.state.list.concat([this.state.newCommentValue]),
 
-        // newCommentValue: '',
+        newCommentValue: '',
       });
-      //this.num += 1;
     }
   };
-  activateSubmitButton = e => {
+
+  activateSubmitButton = () => {
     if (this.state.newCommentValue.length > 0) {
       this.setState({
         submitButtonColor: '#0095F6',
@@ -68,35 +62,10 @@ class Main extends React.Component {
         submitButtonDisabled: true,
       });
     }
-    this.handleKeyPress(e);
+    this.handleKeyPress();
+    //데이터만 바꿔주고 색은 안바뀜
+    //데이터 바꾼 후에 버튼 초기화
   };
-
-  // handleRemove = num => {
-  //   const { list } = this.state;
-  //   const nextList = list.filter(item => {
-  //     return item.num !== num;
-  //   });
-  //   this.setState({ list: nextList });
-  // };
-
-  // handleCreate = () => {
-  //   const { newCommentValue, list } = this.state;
-  //   this.setState({
-  //     list: list.add(newCommentValue),
-  //   });
-  // };
-
-  // function Comment (props){
-  //   const comment = props.list;
-  //   const commentList = list.map(item => {
-  //     return  (<li>
-  //     <span>{props}</span>
-  //     <button>x</button>
-  //   </li>
-  //   );
-  //   }
-
-  // }
 
   render() {
     return (
@@ -157,27 +126,26 @@ class Main extends React.Component {
                   return <Comment comment={item} key={i} />;
                 })}
               </div>
-              <div
-                id="makingCommentContainer"
-                onKeyUp={this.activateSubmitButton}
-              >
+
+              <form id="makingCommentContainer">
                 <i id="smileIcon" class="far fa-smile"></i>
                 <input
+                  onChange={this.activateSubmitButton}
                   type="text"
                   id="makingComment"
                   placeholder="댓글을 입력하세요"
                   onKeyUp={this.controlComment}
+                  // onChange={this.controlButton}
                 />
                 <button
-                  onChange={this.controlButton}
                   style={{ backgroundColor: this.state.submitButtonColor }}
-                  type="button"
+                  type="submit"
                   id="submitCommentButton"
                   disabled //={this.submitButtonDisabled}
                 >
                   게시
                 </button>
-              </div>
+              </form>
             </article>
           </div>
 

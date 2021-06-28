@@ -14,7 +14,7 @@ class Login extends Component {
     if (event.target.type === 'text') {
       this.setState({
         idValue: event.target.value,
-      });
+      }); // 실행이 완료될때까지 기다리지 ㅇ낳는다 - setState -> 비동기 아이디 밸류 달라지기 전에 아래 함수 실행함
     } else if (event.target.type === 'password') {
       this.setState({
         passwordValue: event.target.value,
@@ -48,7 +48,7 @@ class Login extends Component {
 
           <form id="login-form" onKeyUp={this.controlActivation}>
             <input
-              onChange={this.controlValue}
+              onChange={this.controlValue} // controlValue()
               type="text"
               className="text"
               id="id"
@@ -64,7 +64,7 @@ class Login extends Component {
             />
 
             <button
-              style={{ backgroundColor: this.state.buttonColor }}
+              style={{ backgroundColor: this.state.buttonColor }} // 클래스 네임을 동적으로 바꾸어주자
               type="button"
               id="loginButton"
               disabled
