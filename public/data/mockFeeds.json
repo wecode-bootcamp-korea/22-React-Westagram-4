@@ -1,23 +1,40 @@
 [
   {
     "id": 1,
-    "userName": "wecode",
+    "userName": "목데이터1",
     "content": " Welcome to world best coding bootcamp!",
-
-    "src": "./images/jaehyunLee/Main/iu.jpg"
+    "src": "./images/jaehyunLee/Main/iu.jpg",
+    "reply": [
+      {
+        "id": 1,
+        "userName": "목목목목목",
+        "content": " 댓글댓글댓글댓글댓글댓글댓글댓글댓글",
+        "isLike": false
+      },
+      {
+        "id": 2,
+        "userName": "joonsikyang",
+        "content": " Hi there.",
+        "isLike": true
+      },
+      {
+        "id": 3,
+        "userName": "jayPark",
+        "content": " Hey.",
+        "isLike": false
+      }
+    ]
   },
   {
     "id": 2,
-    "userName": "dlwlrma",
-    "content": " Welcome to world best coding bootcamp!",
-
+    "userName": "목데이터2",
+    "content": " Welcome to  ",
     "src": "./images/jaehyunLee/Main/iu2.jpg"
   },
   {
     "id": 3,
-    "userName": "wecode",
-    "content": " Welcome to world best coding bootcamp!",
-
+    "userName": "목데이터3",
+    "content": " Welcome ",
     "src": "./images/jaehyunLee/Main/iu3.jpg"
   }
 ]

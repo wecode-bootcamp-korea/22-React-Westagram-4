@@ -7,7 +7,7 @@ export class AddReply extends Component {
 
   setReply = e => {
     if (e.key === 'Enter') {
-      this.props.addReply(e.target.value);
+      this.props.addReply(e.target.value, this.props.feedsId);
       // this.setState({ content: e.target.value });
       e.target.value = '';
     }

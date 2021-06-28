@@ -1,15 +1,15 @@
 [
   {
     "id": 1,
-    "userName": "wecode",
-    "content": " Welcome to world best coding bootcamp!",
-    "isLike": true
+    "userName": "목목목목목",
+    "content": " 댓글댓글댓글댓글댓글댓글댓글댓글댓글",
+    "isLike": false
   },
   {
     "id": 2,
     "userName": "joonsikyang",
     "content": " Hi there.",
-    "isLike": false
+    "isLike": true
   },
   {
     "id": 3,

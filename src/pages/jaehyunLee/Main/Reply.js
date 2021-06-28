@@ -6,7 +6,6 @@ export class Reply extends Component {
   render() {
     return (
       <div>
-        {' '}
         <div class="feedAddOn">
           <div class="feedAddOnLeft">
             <i class="far fa-heart likeFeedBtn"></i>
@@ -48,7 +47,11 @@ export class Reply extends Component {
             doLike={this.props.doLike}
           />
         ))}
-        <AddReply addReply={this.props.addReply} replies={this.props.replies} />
+        <AddReply
+          feedsId={this.props.feedsId}
+          addReply={this.props.addReply}
+          replies={this.props.replies}
+        />
       </div>
     );
   }
