@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 
 export class ShowReplies extends Component {
   downReply = e => {
-    this.props.delReply(this.props.replies.id);
+    this.props.delReply(this.props.feedId, this.props.replies.id);
+  };
+
+  setLike = e => {
+    this.props.doLike(this.props.feedId, this.props.replies.id);
   };
 
   render() {
@@ -19,13 +23,20 @@ export class ShowReplies extends Component {
             className={this.props.replies.isLike ? `delete` : `none delete`}
             src="./images/jaehyunLee/Main/like.png"
             alt=""
-            onClick={this.props.doLike(this.props.replies.id)}
+            onClick={this.setLike}
+            //   this.props.feedId,
+            //   this.props.replies.id
+            // )}
           />
           <img
             className={this.props.replies.isLike ? `none delete` : `delete`}
             src="./images/jaehyunLee/Main/islike.png"
             alt=""
-            onClick={this.props.doLike(this.props.replies.id)}
+            onClick={this.setLike}
+            // onClick={this.props.doLike(
+            //   this.props.feedId,
+            //   this.props.replies.id
+            // )}
           />
           <img
             className="delete"

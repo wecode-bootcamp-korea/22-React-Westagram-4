@@ -42,6 +42,7 @@ export class Reply extends Component {
         </div>
         {this.props.replies.map(x => (
           <ShowReplies
+            feedId={this.props.feedsId}
             replies={x}
             delReply={this.props.delReply}
             doLike={this.props.doLike}

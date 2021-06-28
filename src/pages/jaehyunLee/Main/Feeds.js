@@ -108,27 +108,41 @@ export default class Feeds extends Component {
     let newFeeds = this.state.feeds;
     newFeeds[id].reply = [...newFeeds[id].reply, newReply];
     this.setState({ feeds: newFeeds });
-    console.log(this.state.feeds[id]);
-    // this.setState({ replies: this.state.replies.push(newReply) });
+    // console.log(this.state.feeds[id]);
   };
 
-  delReply = id => {
-    this.setState({
-      feeds: [...this.state.replies.filter(x => x.id !== id)],
+  delReply = (feedId, id) => {
+    let newFeeds = this.state.feeds;
+    newFeeds[feedId].reply = newFeeds[feedId].reply.filter(x => x.id !== id);
+    // console.log(newFeeds);
+
+    this.setState({ feeds: newFeeds });
+  };
+
+  doLike = (feedId, replyId) => {
+    let newFeeds = this.state.feeds;
+    newFeeds[feedId].reply = newFeeds[feedId].reply.map(x => {
+      if (x.id === replyId) {
+        x.isLike = !x.isLike;
+      }
+
+      return x;
     });
+    // console.log(replyId);
+    console.log('dolike');
+
+    this.setState({ feeds: newFeeds });
   };
 
-  doLike = id => {
-    // this.setState({
-    //   feeds: this.state.replies.map(reply => {
-    //     if (reply.id === id) {
-    //       reply.isLike = !reply.isLike;
-    //     }
-    //     console.log(this);
-    //     return reply;
-    //   }),
-    // });
-  };
+  // this.setState({
+  //   replies: this.state.replies.map(reply => {
+  //     if (reply.id === id) {
+  //       reply.isLike = !reply.isLike;
+  //     }
+  //     console.log(this);
+  //     return reply;
+  //   }),
+  // });
 
   addFeed = (content, src, userName) => {
     const newFeed = {
@@ -139,7 +153,7 @@ export default class Feeds extends Component {
       isLike: true,
     };
     this.setState({ feeds: [...this.state.feeds, newFeed] });
-    console.log(this.state);
+    // console.log(this.state);
   };
 
   render() {
@@ -148,7 +162,7 @@ export default class Feeds extends Component {
         {' '}
         {this.state.feeds.map(x => (
           <Feed
-            id={x.id}
+            feedId={x.id}
             feeds={x}
             replies={x.reply}
             addReply={this.addReply}

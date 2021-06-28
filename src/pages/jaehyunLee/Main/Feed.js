@@ -68,7 +68,7 @@ export default class Feed extends Component {
           <img alt="" src={src} />
         </article>
         <Reply
-          feedsId={this.props.id}
+          feedsId={this.props.feedId}
           // feedsId={this.props.id}
           replies={this.props.replies}
           addReply={this.props.addReply}
