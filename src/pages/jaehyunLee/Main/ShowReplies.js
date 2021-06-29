@@ -24,19 +24,12 @@ export class ShowReplies extends Component {
             src="./images/jaehyunLee/Main/like.png"
             alt=""
             onClick={this.setLike}
-            //   this.props.feedId,
-            //   this.props.replies.id
-            // )}
           />
           <img
             className={this.props.replies.isLike ? `none delete` : `delete`}
             src="./images/jaehyunLee/Main/islike.png"
             alt=""
             onClick={this.setLike}
-            // onClick={this.props.doLike(
-            //   this.props.feedId,
-            //   this.props.replies.id
-            // )}
           />
           <img
             className="delete"

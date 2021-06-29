@@ -17,11 +17,11 @@ body {
 .navBarRight {
   display: flex;
   align-items: center;
-}
 
-.navBarRight i {
-  font-size: 35px;
-  padding: 0px 10px;
+  i {
+    font-size: 35px;
+    padding: 0px 10px;
+  }
 }
 
 .mainDiv {
@@ -100,6 +100,10 @@ body {
   justify-content: space-between;
   align-items: center;
   background-color: white;
+
+  i {
+    margin-right: 10px;
+  }
 }
 
 .whoIsUploader {
@@ -113,10 +117,6 @@ body {
 
 .whoIsUploader span {
   margin-left: 10px;
-}
-
-.feedTop i {
-  margin-right: 10px;
 }
 
 .profile {
@@ -135,7 +135,16 @@ body {
 
 .feedAddOnLeft {
   margin-left: 12px;
+
+  i {
+    color: red;
+  }
+
+  .none {
+    display: none;
+  }
 }
+
 .feedAddOnLeft:hover,
 .feedAddOnRight:hover {
   cursor: pointer;
@@ -143,10 +152,13 @@ body {
 
 .feedAddOnRight {
   margin-right: 12px;
-}
 
-.feedAddOnRight .none {
-  display: none;
+  .none {
+    display: none;
+  }
+  i {
+    color: red;
+  }
 }
 
 .numOfLikesMain {
@@ -157,13 +169,13 @@ body {
   font-size: 20px;
 }
 
-.numOfLikes .profile {
-  width: 20px;
-  height: 20px;
-}
-
 .numOfLikes {
   margin-left: 12px;
+
+  .profile {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .newReplyInput {
@@ -232,13 +244,4 @@ body {
 
 .floatLeft {
   float: left;
-}
-
-.feedAddOnLeft .none {
-  display: none;
-}
-
-.feedAddOnLeft i,
-.feedAddOnRight i {
-  color: red;
 }

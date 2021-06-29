@@ -49,7 +49,7 @@ export class Reply extends Component {
           />
         ))}
         <AddReply
-          feedsId={this.props.feedsId}
+          feedId={this.props.feedsId}
           addReply={this.props.addReply}
           replies={this.props.replies}
         />

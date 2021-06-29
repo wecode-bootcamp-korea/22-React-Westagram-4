@@ -4,7 +4,7 @@
     "userName": "목데이터1",
     "content": " Welcome to world best coding bootcamp!",
     "src": "./images/jaehyunLee/Main/iu.jpg",
-    "reply": [
+    "replies": [
       {
         "id": 1,
         "userName": "11111111111111",
@@ -30,7 +30,7 @@
     "userName": "목데이터2",
     "content": " Welcome to  ",
     "src": "./images/jaehyunLee/Main/iu2.jpg",
-    "reply": [
+    "replies": [
       {
         "id": 1,
         "userName": "2222222222222",
@@ -56,7 +56,7 @@
     "userName": "333333333333",
     "content": " Welcome ",
     "src": "./images/jaehyunLee/Main/iu3.jpg",
-    "reply": [
+    "replies": [
       {
         "id": 1,
         "userName": "3333333333333",
