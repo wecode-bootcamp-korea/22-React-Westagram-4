@@ -4,9 +4,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 //스타일
-import './Commnet.scss';
+import './Comment.scss';
 
-export class Commnet extends Component {
+export class Comment extends Component {
   render() {
     return (
       <li>
@@ -17,4 +17,4 @@ export class Commnet extends Component {
   }
 }
 
-export default Commnet;
+export default Comment;

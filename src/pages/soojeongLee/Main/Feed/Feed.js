@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 //컴포넌트
-import Commnet from '../Feed/Commnet/Commnet';
+import Comment from './Comment/Comment';
 
 // css
 import '../Feed/Feed.scss';
@@ -63,7 +63,6 @@ export class Feed extends Component {
     });
   }
 
-  // // // ❗️ 충돌 발생
   handleKeyPress = event => {
     //input 창에서 enter press 했을 때
     if (event.key === 'Enter') {
@@ -119,7 +118,7 @@ export class Feed extends Component {
           <ul id="commnetBox">
             {this.state.commentList.map(comment => {
               return (
-                <Commnet
+                <Comment
                   key={comment.id}
                   name={comment.userName}
                   comment={comment.content}

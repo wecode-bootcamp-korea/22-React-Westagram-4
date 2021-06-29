@@ -2,10 +2,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-export class FootList extends Component {
+//컴포넌트
+import { FOOTLIST } from '../FootLists/footData';
+
+export class FootLists extends Component {
   render() {
-    return <Link>{'댓글 프랍스'}</Link>;
+    return FOOTLIST.map(footlists => {
+      return <Link class="listDot">{footlists.footlist}</Link>;
+    });
   }
 }
 
-export default FootList;
+export default FootLists;

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 // 컴포넌트
 import Nav from '../../../components/Nav/Nav';
 import Feed from '../Main/Feed/Feed';
-import Footlists from './Feed/FootLists/FootLists';
+import FootLists from '../Main/Feed/FootLists/FootLists';
 
 // css
 import './Main.scss';
@@ -186,7 +186,11 @@ class Main extends React.Component {
 
             <footer className="main-right-footer">
               <ul className="footList">
-                <Footlists />
+                {/* 데이터 자체를 불려올 때 */}
+                {/* {FOOTLIST.map(footlists => {
+                  return <Link class="listDot">{footlists.footlist}</Link>;
+                })} */}
+                <FootLists />
               </ul>
               <span className="copyright">© 2021 INSTAGRAM FROM FACEBOOK</span>
             </footer>

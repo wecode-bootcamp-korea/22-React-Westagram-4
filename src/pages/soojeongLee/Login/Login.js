@@ -32,19 +32,14 @@ class Login extends Component {
   };
 
   isButtonOn = () => {
-    if (
+    const isValid =
       this.state.id.includes('@') &&
       this.state.id.length >= 5 &&
-      this.state.pw.length >= 8
-    ) {
-      this.setState({
-        isButtonOn: true,
-      });
-    } else {
-      this.setState({
-        isButtonOn: false,
-      });
-    }
+      this.state.pw.length >= 8;
+
+    this.setState({
+      isButtonOn: isValid ? true : false,
+    });
   };
 
   goToMain = () => {
