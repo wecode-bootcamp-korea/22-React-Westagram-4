@@ -129,7 +129,7 @@ export default class Feeds extends Component {
       return x;
     });
     // console.log(replyId);
-    console.log('dolike');
+    console.log(newFeeds);
 
     this.setState({ feeds: newFeeds });
   };
