@@ -1,14 +1,13 @@
-// 필수
+// 라이브러리
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 // 컴포넌트
 import Nav from '../../../components/Nav/Nav';
-// import Commnet from '../Main/Commnet/Commnet';
 import Feed from '../Main/Feed/Feed';
-// import COMMENT from '../Main/Commnet/commentData';
+import Footlists from './Feed/FootLists/FootLists';
 
-// 스타일
+// css
 import './Main.scss';
 
 class Main extends React.Component {
@@ -29,23 +28,25 @@ class Main extends React.Component {
         this.setState({
           feedList: data,
         });
-        // console.log(`feedList data>>>`, data);// 페칭 할때 콘솔로 데이터 들어오는지 확인하기!
+        // console.log(`feedList data>>>`, data); // fetching 할때 콘솔로 데이터 들어오는지 확인하기!
       });
   }
 
   render() {
+    const { feedList } = this.state;
     return (
       <div className="Main">
         <Nav />
         <main>
           <div className="feeds">
-            {this.state.feedList.map(feed => {
+            {feedList.map(feed => {
               return (
                 <Feed
                   key={feed.id}
                   userName={feed.userName}
                   src={feed.src}
                   feedText={feed.feedText}
+                  commentData={feed.commentData}
                 />
               );
             })}
@@ -185,39 +186,7 @@ class Main extends React.Component {
 
             <footer className="main-right-footer">
               <ul className="footList">
-                <li>
-                  <Link>소개</Link>
-                </li>
-                <li>
-                  <Link>도움말</Link>
-                </li>
-                <li>
-                  <Link>홍보 센터</Link>
-                </li>
-                <li>
-                  <Link>API</Link>
-                </li>
-                <li>
-                  <Link>채용 정보</Link>
-                </li>
-                <li>
-                  <Link>개인정보처리방침</Link>
-                </li>
-                <li>
-                  <Link>약관</Link>
-                </li>
-                <li>
-                  <Link>위치</Link>
-                </li>
-                <li>
-                  <Link>인기 계정</Link>
-                </li>
-                <li>
-                  <Link>해시태그</Link>
-                </li>
-                <li>
-                  <Link>언어</Link>
-                </li>
+                <Footlists />
               </ul>
               <span className="copyright">© 2021 INSTAGRAM FROM FACEBOOK</span>
             </footer>

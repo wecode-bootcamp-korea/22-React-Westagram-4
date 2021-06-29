@@ -3,24 +3,112 @@
     "id": 1,
     "userName": "eessoo__",
     "src": "../images/soojeongLee/user2.jpg",
-    "feedText": "💟"
+    "feedText": "💟",
+    "commentData": [
+      {
+        "id": 1,
+        "userName": "wecode",
+        "content": "Welcome to world best coding bootcamp!"
+      },
+      {
+        "id": 2,
+        "userName": "soojeonglee",
+        "content": "Hi there."
+      },
+      {
+        "id": 3,
+        "userName": "jaehyunlee",
+        "content": "Hey."
+      },
+      {
+        "id": 4,
+        "userName": "gyeongminlee",
+        "content": "Hi."
+      }
+    ]
   },
   {
     "id": 2,
     "userName": "zz_ing94",
     "src": "../../images/soojeongLee/user3.jpg",
-    "feedText": "Toy story 💚"
+    "feedText": "Toy story 💚",
+    "commentData": [
+      {
+        "id": 1,
+        "userName": "wecode",
+        "content": "Welcome to world best coding bootcamp!"
+      },
+      {
+        "id": 2,
+        "userName": "jisuoh",
+        "content": "✨"
+      },
+      {
+        "id": 3,
+        "userName": "jungjunsung",
+        "content": "coffee"
+      },
+      {
+        "id": 4,
+        "userName": "somihwang",
+        "content": "포키"
+      }
+    ]
   },
   {
     "id": 3,
     "userName": "hwayoonci",
     "src": "../../images/soojeongLee/user4.jpg",
-    "feedText": "오늘의 일기"
+    "feedText": "오늘의 일기",
+    "commentData": [
+      {
+        "id": 1,
+        "userName": "wecode",
+        "content": "Welcome to world best coding bootcamp!"
+      },
+      {
+        "id": 2,
+        "userName": "yunkyunglee",
+        "content": "귀여운 스티커"
+      },
+      {
+        "id": 3,
+        "userName": "summer",
+        "content": "🐶"
+      },
+      {
+        "id": 4,
+        "userName": "uiyeonlee",
+        "content": "👍🏻"
+      }
+    ]
   },
   {
     "id": 4,
     "userName": "cosz_zy",
     "src": "../../images/soojeongLee/user5.jpg",
-    "feedText": "수채화 그림"
+    "feedText": "1일 화가 🎨 ",
+    "commentData": [
+      {
+        "id": 1,
+        "userName": "wecode",
+        "content": "Welcome to world best coding bootcamp!"
+      },
+      {
+        "id": 2,
+        "userName": "soojeonglee",
+        "content": "Hi there."
+      },
+      {
+        "id": 3,
+        "userName": "jaehyunlee",
+        "content": "Hey."
+      },
+      {
+        "id": 4,
+        "userName": "gyeongminlee",
+        "content": "Hi."
+      }
+    ]
   }
 ]

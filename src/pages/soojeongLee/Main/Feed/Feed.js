@@ -1,8 +1,11 @@
+//라이브러리
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+//컴포넌트
 import Commnet from '../Feed/Commnet/Commnet';
 
+// css
 import '../Feed/Feed.scss';
 
 export class Feed extends Component {
@@ -22,18 +25,12 @@ export class Feed extends Component {
   //   });
   // }
 
-  // json 일 때,
+  // fetch 일 때,
   componentDidMount() {
-    fetch('http://localhost:3000/data/soojeonglee/commentData.json', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          commentList: data,
-        });
-        // console.log(`data>>>`, data); // 페칭 할때 콘솔로 데이터 들어오는지 확인하기!
-      });
+    // console.log(this.props.commentData);
+    this.setState({
+      commentList: this.props.commentData,
+    });
   }
 
   hadComment = event => {
@@ -43,8 +40,8 @@ export class Feed extends Component {
     });
   };
 
-  submitComent = event => {
-    // 기존 코드
+  submitComent() {
+    // mock - data 이전
     //button을 클릭했을 때
     // event.preventDefault();
     // this.setState({
@@ -55,17 +52,16 @@ export class Feed extends Component {
     // mock - data 적용한 코드
     const { commentList, comment } = this.state;
     this.setState({
-      commentList: this.state.commentList.concat([
+      commentList: commentList.concat([
         {
           id: commentList.length + 1,
           userName: 'eessoo__',
           content: comment,
-          isLiked: false,
         },
       ]),
       comment: '',
     });
-  };
+  }
 
   // // // ❗️ 충돌 발생
   handleKeyPress = event => {
@@ -138,7 +134,6 @@ export class Feed extends Component {
               autoComplete="off"
               onChange={this.hadComment}
               onKeyPress={this.handleKeyPress}
-              id="userComment"
               className="comment"
               value={this.state.comment}
               type="text"

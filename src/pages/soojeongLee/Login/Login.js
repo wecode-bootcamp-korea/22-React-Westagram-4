@@ -18,14 +18,16 @@ class Login extends Component {
   }
 
   handleInputId = event => {
+    const { value } = event.target;
     this.setState({
-      id: event.target.value,
+      id: value,
     });
   };
 
   handleInputPw = event => {
+    const { value } = event.target;
     this.setState({
-      pw: event.target.value,
+      pw: value,
     });
   };
 
