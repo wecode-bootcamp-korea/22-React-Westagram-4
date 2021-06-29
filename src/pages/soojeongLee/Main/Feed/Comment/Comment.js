@@ -11,7 +11,7 @@ export class Comment extends Component {
     return (
       <li>
         <Link className="commentUserId">{this.props.name} </Link>
-        <span>{this.props.comment}</span>
+        <span className="commnetList">{this.props.comment}</span>
       </li>
     );
   }

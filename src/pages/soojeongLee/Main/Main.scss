@@ -69,31 +69,6 @@
           }
         }
 
-        .storyUser {
-          li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-            font-weight: bold;
-
-            .otherUserImg {
-              @include userProfile;
-              margin-right: 10px;
-              img {
-                width: 100%;
-                height: 100%;
-                border-radius: 30px;
-              }
-            }
-
-            .postTime {
-              @include postTime;
-              font-size: 14px;
-              font-weight: normal;
-            }
-          }
-        }
-
         .recommandUser {
           .otherUserProfile {
             display: flex;
@@ -139,18 +114,6 @@
     flex-direction: column;
     .footList {
       margin-right: 5px;
-
-      .listDot {
-        float: left;
-        font-size: 14px;
-        &::after {
-          content: '·';
-          margin: 5px;
-        }
-        &:last-child::after {
-          content: '';
-        }
-      }
     }
 
     .copyright {

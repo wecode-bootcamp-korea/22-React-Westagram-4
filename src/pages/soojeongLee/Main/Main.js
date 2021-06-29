@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 // 컴포넌트
 import Nav from '../../../components/Nav/Nav';
 import Feed from '../Main/Feed/Feed';
+import OtherUserPro from './OtherUserPro/OtherUserPro';
 import FootLists from '../Main/Feed/FootLists/FootLists';
 
 // css
@@ -68,52 +69,8 @@ class Main extends React.Component {
                   모두 보기
                 </button>
               </header>
-
               <ul className="storyUser">
-                <li>
-                  <Link className="otherUserImg">
-                    <img
-                      alt="User Profile"
-                      src="images/soojeongLee/user1.jpg"
-                    />
-                  </Link>
-                  <Link>
-                    namzieun<span className="postTime">16분 전</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link className="otherUserImg">
-                    <img
-                      alt="User Profile"
-                      src="images/soojeongLee/user2.jpg"
-                    />
-                  </Link>
-                  <Link>
-                    zz_ing94<span className="postTime">40분 전</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link className="otherUserImg">
-                    <img
-                      alt="User Profile"
-                      src="images/soojeongLee/user3.jpg"
-                    />
-                  </Link>
-                  <Link>
-                    hwayoonci<span className="postTime">2시간 전</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link className="otherUserImg">
-                    <img
-                      alt="User Profile"
-                      src="images/soojeongLee/user4.jpg"
-                    />
-                  </Link>
-                  <Link>
-                    cosz_zy<span className="postTime">20시간전</span>
-                  </Link>
-                </li>
+                <OtherUserPro />
               </ul>
             </aside>
 
@@ -183,7 +140,6 @@ class Main extends React.Component {
                 </li>
               </ul>
             </aside>
-
             <footer className="main-right-footer">
               <ul className="footList">
                 {/* 데이터 자체를 불려올 때 */}

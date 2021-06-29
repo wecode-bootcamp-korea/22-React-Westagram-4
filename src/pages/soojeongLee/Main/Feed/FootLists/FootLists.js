@@ -5,10 +5,17 @@ import { Link } from 'react-router-dom';
 //컴포넌트
 import { FOOTLIST } from '../FootLists/footData';
 
+// css
+import './FootLists.scss';
+
 export class FootLists extends Component {
   render() {
     return FOOTLIST.map(footlists => {
-      return <Link class="listDot">{footlists.footlist}</Link>;
+      return (
+        <Link className="listDot" key={footlists.id}>
+          {footlists.footlist}
+        </Link>
+      );
     });
   }
 }

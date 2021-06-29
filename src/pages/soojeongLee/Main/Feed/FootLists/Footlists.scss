@@ -1,19 +1,11 @@
-.main-right-footer {
-  display: flex;
-  flex-direction: column;
-  .footList {
-    margin-right: 5px;
-
-    .listDot {
-      float: left;
-      font-size: 14px;
-      &::after {
-        content: '·';
-        margin: 5px;
-      }
-      &:last-child::after {
-        content: '';
-      }
-    }
+.listDot {
+  float: left;
+  font-size: 14px;
+  &::after {
+    content: '·';
+    margin: 5px;
+  }
+  &:last-child::after {
+    content: '';
   }
 }
