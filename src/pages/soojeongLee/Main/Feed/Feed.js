@@ -32,7 +32,7 @@ export class Feed extends Component {
         this.setState({
           commentList: data,
         });
-        // console.log(`data>>>`, data);// 페칭 할때 콘솔로 데이터 들어오는지 확인하기!
+        // console.log(`data>>>`, data); // 페칭 할때 콘솔로 데이터 들어오는지 확인하기!
       });
   }
 
@@ -121,9 +121,6 @@ export class Feed extends Component {
             <span className="postTime">54분 전</span>
           </p>
           <ul id="commnetBox">
-            {/* {this.state.commentList.map((commnetComponent, index) => {
-                    return <Commnet value={commnetComponent} key={index} />;
-                  })} */}
             {this.state.commentList.map(comment => {
               return (
                 <Commnet
