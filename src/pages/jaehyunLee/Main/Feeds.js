@@ -86,7 +86,7 @@ export default class Feeds extends Component {
   };
 
   // componentDidMount() {
-  //   fetch('http://localhost:3000/data/mockFeeds.json', {
+  //   fetch('http://localhost:3000/data/jaehyunLee/mockFeeds.json', {
   //     method: 'GET',
   //   })
   //     .then(res => res.json())
