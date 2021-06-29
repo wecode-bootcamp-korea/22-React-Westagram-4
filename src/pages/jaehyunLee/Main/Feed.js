@@ -69,7 +69,6 @@ export default class Feed extends Component {
         </article>
         <Reply
           feedsId={this.props.feedId}
-          // feedsId={this.props.id}
           replies={this.props.replies}
           addReply={this.props.addReply}
           delReply={this.props.delReply}
