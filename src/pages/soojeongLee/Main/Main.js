@@ -83,6 +83,7 @@ class Main extends React.Component {
               </header>
 
               <ul className="recommandUser">
+                {/* <OtherUserPro /> */}
                 <li className="otherUserProfile">
                   <span className="profileBox">
                     <Link className="otherUserImg">
