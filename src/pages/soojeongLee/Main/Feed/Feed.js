@@ -48,25 +48,26 @@ export class Feed extends Component {
     //   commentList: this.state.commentList.concat([this.state.comment]), // 댓글 추가
     //   comment: '', // 인풋 밸류 초기화
     // });
-    fetch('http://10.58.3.29:8000/postings/post/2/comment/create', {
-      method: 'POST',
-      headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MywiZXhwIjoxNjI1MDYxMTIyfQ.svGswFZtglbdmhoYojR8gmXD14fTI4L3Y3t2SRMSymE',
-      },
-      body: JSON.stringify({
-        content: this.state.comment,
-      }),
-    })
-      .then(response => response.json())
-      // result : 백에서 전달됨. 통신할 때 정해준 값으로
-      .then(result => {
-        console.log(result);
-        // if (result.message === 'success') {
-        //   // if 조건을 바꿔주기
-        //   console.log(result.access_token);
-        //   // localStorage.setItem('access_token', result.access_token);
-      });
+
+    // fetch('http://10.58.3.29:8000/postings/post/2/comment/create', {
+    //   method: 'POST',
+    //   headers: {
+    //     Authorization:
+    //       'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MywiZXhwIjoxNjI1MDYxMTIyfQ.svGswFZtglbdmhoYojR8gmXD14fTI4L3Y3t2SRMSymE',
+    //   },
+    //   body: JSON.stringify({
+    //     content: this.state.comment,
+    //   }),
+    // })
+    // .then(response => response.json())
+    // // result : 백에서 전달됨. 통신할 때 정해준 값으로
+    // .then(result => {
+    //   console.log(result);
+    //   // if (result.message === 'success') {
+    //   //   // if 조건을 바꿔주기
+    //   //   console.log(result.access_token);
+    //   //   // localStorage.setItem('access_token', result.access_token);
+    // });
 
     // mock - data 적용한 코드
     const { commentList } = this.state;
