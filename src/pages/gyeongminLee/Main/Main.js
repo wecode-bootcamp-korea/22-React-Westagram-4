@@ -10,12 +10,13 @@ class Main extends React.Component {
     super();
     this.state = {
       submitButtonColor: 'none',
-      // submitButtonDisabled: 'true',
       newCommentValue: '',
       list: [],
     };
   }
-  controlComment = event => {
+
+  //아래의 컨트롤 - 버튼을 두개로 나눌 필요가 없다 . 두개를 감싸고 있는 부모태그가 둘 중 하나를 감지했을때 타겟.뫄뫄 =='' 로 뭐에대한 변화인지 감지하면 되기때문이다.
+  controlButton = event => {
     if (event.target.type === 'text') {
       this.setState(
         {
@@ -24,24 +25,19 @@ class Main extends React.Component {
         () => this.activateSubmitButton(event) //(중요!!!!!!!)콜백함수 - 이것때문에 함수 다시 한번 실행되어 댓글이 두개씩 달림!!
         // 일단 제외하고 제이쓴 기능 구현하기 !!!!!!!!(이후 리팩토링 필요)
       );
+    } else if (event.target.type === 'button') {
+      this.setState(
+        {
+          submitButtonColor: event.target.backgroundColor,
+        },
+        () => this.activateSubmitButton(event)
+      );
     }
   };
-  controlButton = event => {
-    if (event.target.type === 'button') {
-      this.setState({
-        submitButtonColor: event.target.backgroundColor,
-      });
-    }
-  };
-  // submitButtonDisabled = event => {
-  //   if (event.target.type === 'button') {
-  //     this.setState({
-  //       submitButtonDisabled: event.target.disabled,
-  //     });
-  //   }
-  // };
-  handleKeyPress = e => {
-    if (e.key === 'Enter') {
+
+  controlKeyPress = event => {
+    // 태그안에 인풋창에서 키가 눌린걸 감지하는 이벤트를 걸어야하는거 아닌가 ?
+    if (event.key === 'Enter') {
       this.setState({
         list: this.state.list.concat(
           //...<=stackoverflow //이걸로도 한 번 해보기
@@ -57,13 +53,14 @@ class Main extends React.Component {
         //     content: this.state.newCommentValue, //아닐것 같은 부분
         //   },
         // ],
-        //newCommentValue: '', //이거 빼고 한번 해보기
+        newCommentValue: '', //이거 빼고 한번 해보기
       });
       //this.num += 1;
     }
   };
 
-  activateSubmitButton = e => {
+  activateSubmitButton = event => {
+    // 이 e 랑 아래의 핸들키프레스의 e 가 다른가 ?
     if (this.state.newCommentValue.length > 0) {
       this.setState({
         submitButtonColor: '#0095F6',
@@ -75,21 +72,8 @@ class Main extends React.Component {
         submitButtonDisabled: true,
       });
     }
-    this.handleKeyPress(e);
+    this.controlKeyPress(event);
   };
-  // handleRemove = num => {
-  //   const { list } = this.state;
-  //   const nextList = list.filter(item => {
-  //     return item.num !== num;
-  //   });
-  //   this.setState({ list: nextList });
-  // };
-  // handleCreate = () => {
-  //   const { newCommentValue, list } = this.state;
-  //   this.setState({
-  //     list: list.add(newCommentValue),
-  //   });
-  // };
 
   render() {
     console.log(this.state.list);
@@ -149,10 +133,7 @@ class Main extends React.Component {
 
               <div className="feedCommentsListContainer">
                 {this.state.list.map((content, id) => {
-                  // 배열인덱스 키로 쓰면 안됨 두번째 인자가 맵 함수의 인덱스 ///
-                  //
-                  //console.log(i);
-                  return <Comment comment={content} key={id} />; //체크해야되는 상황 comment와 키는 임의로 정의하는것 ?
+                  return <Comment comment={content} key={id} />;
                 })}
               </div>
 
@@ -162,6 +143,7 @@ class Main extends React.Component {
                   type="text"
                   id="makingComment"
                   placeholder="댓글을 입력하세요"
+                  onChange={this.controlKeyPress}
                   // onKeyUp={this.controlComment}
                 />
                 <button
@@ -169,7 +151,7 @@ class Main extends React.Component {
                   style={{ backgroundColor: this.state.submitButtonColor }}
                   type="button"
                   id="submitCommentButton"
-                  disabled //={this.submitButtonDisabled}
+                  //disabled //={this.submitButtonDisabled}
                 >
                   게시
                 </button>

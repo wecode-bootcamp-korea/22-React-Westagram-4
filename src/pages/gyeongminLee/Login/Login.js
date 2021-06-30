@@ -4,9 +4,10 @@ class Login extends Component {
   constructor() {
     super();
     this.state = {
-      buttonColor: '#B2DFFC',
       idValue: '',
       passwordValue: '',
+      // submitButtonDisabled: true,
+      // buttonColor: '#B2DFFC',
     };
   }
 
@@ -37,19 +38,50 @@ class Login extends Component {
     if (
       this.state.idValue.includes('@') &&
       this.state.passwordValue.length >= 5
+      //inputValid
     ) {
       this.setState({
         buttonColor: '#0095F6',
+        submitButtonDisabled: false, //디스에이블드-아이디 패스워드가 무엇이냐에따라 달라짐- 스테이트가 아니다
       });
     } else {
       this.setState({
         buttonColor: '#B2DFFC',
+        submitButtonDisabled: true,
       });
     }
   };
 
+  goToMain = e => {
+    fetch('http://10.58.0.86:8000/user/signin', {
+      method: 'post',
+      body: JSON.stringify({
+        email: this.state.idValue,
+        password: this.state.passwordValue,
+      }),
+    })
+      .then(response => response.json())
+      .then(
+        result => {
+          if (result.MESSAGE !== 'SUCCESS') {
+            //응답은 맞는경우도 있고 아닌경우도 있다 - if문으로 나누어 주어야된다
+            this.props.history.push('/main-Gyeongmin');
+            //alert(result.ACCESS_TOKEN);
+            localStorage.setItem('Token', result['ACCESS_TOKEN']);
+          }
+        }
+
+        //.then setItem('ACCESS_TOKEN', result.ACCESS_TOKEN)
+      );
+    // .then(localStorage.setItem('ACCESS_TOKEN',  JsonResponse.ACCESS_TOKEN));
+  };
+
   render() {
-    //console.log(this.setState);
+    //console.log(JsonResponse['ACCESS_TOKEN']);
+    // const idValid = this.state.idValue.length >= 1; 멘토님의 것
+    //const inputValid =this.state.idValue.includes('@')&&this.state.password.length>=5
+    const idValid = this.state.idValid.includes('@');
+
     return (
       <>
         <div className="container">
@@ -75,10 +107,13 @@ class Login extends Component {
               placeholder="비밀번호"
             />
             <button
-              style={{ backgroundColor: this.state.buttonColor }} // 클래스 네임을 동적으로 바꾸어주자
+              //style={{ backgroundColor: this.state.buttonColor }} // 클래스 네임을 동적으로 바꾸어주자(무슨뜻인지 모름 ^^)
+              //disabled
+              {isValid? 
+              onClick={this.goToMain}
               type="button"
               id="loginButton"
-              disabled
+              
             >
               로그인
             </button>
