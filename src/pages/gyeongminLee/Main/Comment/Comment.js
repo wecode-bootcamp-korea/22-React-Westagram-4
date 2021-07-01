@@ -1,44 +1,48 @@
-import React from 'react';
-//import COMMENT from './commentData';
+import React, { Component } from 'react';
 
-class Comment extends React.Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     commentList: [],
-  //     commentValue: '',
-  //   };
-  // }
+import COMMENT from '../../data/commentData';
 
-  // componentDidMount() {
-  //   this.setState({
-  //     commentList: COMMENT,
-  //   });
-  // }
+class Comment extends Component {
+  constructor() {
+    super();
+    this.state = {
+      commentList: [],
+      commentValue: '',
+    };
+  }
 
-  // handleCommentValue = e => {
-  //   this.setState({
-  //     commentValue: e.target.value,
-  //   });
-  // };
+  componentDidMount() {
+    this.setState({
+      commentList: COMMENT,
+    });
+  }
 
-  // addComment = e => {
-  //   e.preventDefault();
-  //   const { commentList, commentValue } = this.state;
-  //   this.setState({
-  //     commentList: [
-  //       ...commentList,
-  //       {
-  //         id: commentList.length + 1,
-  //         content: commentValue,
-  //       },
-  //     ],
-  //     commentValue: '',
-  //   });
-  // };
+  handleCommentValue = e => {
+    this.setState({
+      commentValue: e.target.value,
+    });
+  };
+
+  addComment = e => {
+    e.preventDefault();
+    const { commentList, commentValue } = this.state;
+    this.setState({
+      commentList: [
+        ...commentList,
+        {
+          id: commentList.length + 1,
+          userName: 'wecode',
+          content: commentValue,
+          isLiked: false,
+        },
+      ],
+      commentValue: '',
+    });
+  };
 
   render() {
     //console.log(this.props.comment);
+    //console.log(this.setState.commentList);
     return (
       <>
         <li>

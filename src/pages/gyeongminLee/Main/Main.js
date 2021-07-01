@@ -1,6 +1,7 @@
 // 필수
 import React from 'react';
 import Comment from './Comment/Comment';
+import commentData from '../data/commentData';
 
 // 컴포넌트
 import Nav from '../../../components/Nav/Nav';
@@ -15,6 +16,17 @@ class Main extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.setState({
+      list: commentData,
+    });
+  }
+
+  handleCommentValue = e => {
+    this.setState({
+      commentValue: e.target.value,
+    });
+  };
   //아래의 컨트롤 - 버튼을 두개로 나눌 필요가 없다 . 두개를 감싸고 있는 부모태그가 둘 중 하나를 감지했을때 타겟.뫄뫄 =='' 로 뭐에대한 변화인지 감지하면 되기때문이다.
   controlButton = event => {
     if (event.target.type === 'text') {
@@ -36,23 +48,20 @@ class Main extends React.Component {
   };
 
   controlKeyPress = event => {
-    // 태그안에 인풋창에서 키가 눌린걸 감지하는 이벤트를 걸어야하는거 아닌가 ?
+    event.preventDefault();
+    const { list, newCommentValue } = this.state;
     if (event.key === 'Enter') {
       this.setState({
-        list: this.state.list.concat(
-          //...<=stackoverflow //이걸로도 한 번 해보기
-          //num: this.num,
-          //  num : this.num,
-          //newCommentValue: newCommentValue,
-          [this.state.newCommentValue]
-        ),
-        // list: [
-        //   ...this.state,
-        //   {
-        //     id: this.state.length + 1,
-        //     content: this.state.newCommentValue, //아닐것 같은 부분
-        //   },
-        // ],
+        //list: this.state.list.concat([this.state.newCommentValue]),
+        list: [
+          ...list,
+          {
+            id: list.length + 1,
+            userName: 'wecode',
+            content: newCommentValue,
+          },
+        ],
+
         newCommentValue: '', //이거 빼고 한번 해보기
       });
       //this.num += 1;
@@ -76,7 +85,7 @@ class Main extends React.Component {
   };
 
   render() {
-    console.log(this.state.list);
+    const { list, newCommentValue } = this.state;
     return (
       <>
         <Nav />
@@ -90,8 +99,7 @@ class Main extends React.Component {
                   src="data:image/jpeg;base64,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"
                 />
                 <div id="feedProfileAccount">
-                  {' '}
-                  <span> glorious_min </span>{' '}
+                  <span> glorious_min </span>
                 </div>
               </div>
               <div className="feedImage">
@@ -132,12 +140,19 @@ class Main extends React.Component {
               </div>
 
               <div className="feedCommentsListContainer">
-                {this.state.list.map((content, id) => {
-                  return <Comment comment={content} key={id} />;
+                {this.state.list.map(comment => {
+                  return (
+                    <Comment
+                      username={comment.username}
+                      comment={comment.content}
+                      key={comment.content}
+                      value={newCommentValue}
+                    />
+                  );
                 })}
               </div>
 
-              <div id="makingCommentContainer" onChange={this.controlButton}>
+              <div id="makingCommentContainer" onKeyUp={this.controlButton}>
                 <i id="smileIcon" class="far fa-smile"></i>
                 <input
                   type="text"
