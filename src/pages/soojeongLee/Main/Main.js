@@ -19,9 +19,8 @@ class Main extends React.Component {
     };
   }
 
-  // fetch의 짝궁
   componentDidMount() {
-    fetch('http://localhost:3000/data/soojeonglee/feedData.json', {
+    fetch('/data/soojeonglee/feedData.json', {
       method: 'GET',
     })
       .then(res => res.json())
@@ -29,7 +28,6 @@ class Main extends React.Component {
         this.setState({
           feedList: data,
         });
-        // console.log(`feedList data>>>`, data); // fetching 할때 콘솔로 데이터 들어오는지 확인하기!
       });
   }
 
@@ -48,6 +46,7 @@ class Main extends React.Component {
                   src={feed.src}
                   feedText={feed.feedText}
                   commentData={feed.commentData}
+                  isLike={feed.isLike}
                 />
               );
             })}
@@ -83,7 +82,6 @@ class Main extends React.Component {
               </header>
 
               <ul className="recommandUser">
-                {/* <OtherUserPro /> */}
                 <li className="otherUserProfile">
                   <span className="profileBox">
                     <Link className="otherUserImg">
@@ -143,10 +141,6 @@ class Main extends React.Component {
             </aside>
             <footer className="main-right-footer">
               <ul className="footList">
-                {/* 데이터 자체를 불려올 때 */}
-                {/* {FOOTLIST.map(footlists => {
-                  return <Link class="listDot">{footlists.footlist}</Link>;
-                })} */}
                 <FootLists />
               </ul>
               <span className="copyright">© 2021 INSTAGRAM FROM FACEBOOK</span>

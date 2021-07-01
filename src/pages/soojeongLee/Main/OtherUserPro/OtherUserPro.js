@@ -23,6 +23,18 @@ export class otherUserProp extends Component {
         </li>
       );
     });
+
+    // return (
+    //   <li key={propfileLists.id}>
+    //     <Link className="otherUserImg">
+    //       <img alt="User Profile" src={propfileLists.src} />
+    //     </Link>
+    //     <Link>
+    //       {propfileLists.profileId}
+    //       <span className="postTime">{propfileLists.postTime}</span>
+    //     </Link>
+    //   </li>
+    // );
   }
 }
 

@@ -1,6 +1,7 @@
 // 필수 라이브러리 import
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+
 // 컴포넌트 import
 
 // 스타일
@@ -17,8 +18,6 @@ class Login extends Component {
     };
   }
 
-  //name 속성은 오직 input 태그에서 사용
-  //계산된 속성명 사용
   handleInput = event => {
     this.setState({
       [event.target.name]: event.target.value,
@@ -37,40 +36,38 @@ class Login extends Component {
   };
 
   goToMain = () => {
-    //여기에 fetch 함수 적어주기 fetch();
-    fetch('http://10.58.3.29:8000/user/login', {
-      method: 'POST',
-      body: JSON.stringify({
-        email: this.state.id,
-        password: this.state.pw,
-        nick_name: 'newnew',
-        name: '새로운친구',
-        phone_number: '01051282089',
-      }),
-    })
-      .then(response => response.json())
-      // result : 백에서 전달됨. 통신할 때 정해준 값으로
-      .then(result => {
-        console.log(result);
-        if (result.message === 'success') {
-          // if 조건을 바꿔주기
-          console.log(result.access_token);
-          localStorage.setItem('access_token', result.access_token);
-          this.props.history.push('/main-Soojeong#');
-        } else {
-          alert(`❗️아이디와 비밀번호를 확인해주세요❗️`);
-        }
-      });
+    // fetch() 함수 사용 시
+    // fetch('http://10.58.3.29:8000/user/login', {
+    //   method: 'POST',
+    //   body: JSON.stringify({
+    //     email: this.state.id,
+    //     password: this.state.pw,
+    //     nick_name: 'newnew',
+    //     name: '새로운친구',
+    //     phone_number: '01051282089',
+    //   }),
+    // })
+    //   .then(response => response.json())
 
-    // if (this.state.isButtonOn === true) {
-    //   this.props.history.push('/main-Soojeong#');
-    // } else {
-    //   alert(`❗️아이디와 비밀번호를 확인해주세요❗️`);
-    // }
+    //   // result : 백에서 전달됨. 통신할 때 정해준 값으로
+    //   .then(result => {
+    //      // 조건을 지정해준다.
+    //     if (result.message === 'success') {
+    //       localStorage.setItem('access_token', result.access_token);
+    //       this.props.history.push('/main-Soojeong#');
+    //     } else {
+    //       alert(`❗️아이디와 비밀번호를 확인해주세요❗️`);
+    //     }
+    //   });
+
+    if (this.state.isButtonOn === true) {
+      this.props.history.push('/main-Soojeong#');
+    } else {
+      alert(`❗️아이디와 비밀번호를 확인해주세요❗️`);
+    }
   };
 
   handleKeyPress = event => {
-    //input 창에서 enter press 했을 때
     if (event.key === 'Enter') {
       event.preventDefault();
       this.goToMain();
@@ -87,7 +84,7 @@ class Login extends Component {
 
           <section className="loginInputBox">
             <h2 className="sr-only">login page</h2>
-            <form action="" onKeyUp={this.isButtonOn}>
+            <form onKeyUp={this.isButtonOn} onKeyPress={this.handleKeyPress}>
               <input
                 name="id"
                 autoComplete="off"
@@ -104,7 +101,6 @@ class Login extends Component {
                 id="loginPw"
                 value={this.state.pw}
                 placeholder="비밀번호"
-                onKeyPress={this.handleKeyPress}
               />
               <button
                 onClick={this.goToMain}

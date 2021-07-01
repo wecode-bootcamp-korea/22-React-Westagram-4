@@ -15,6 +15,7 @@ export class Feed extends Component {
       // 초기셋팅
       comment: '',
       commentList: [],
+      isLike: false,
     };
   }
 
@@ -27,9 +28,9 @@ export class Feed extends Component {
 
   // fetch 일 때,
   componentDidMount() {
-    // console.log(this.props.commentData);
     this.setState({
       commentList: this.props.commentData,
+      isLike: this.props.isLike,
     });
   }
 
@@ -59,15 +60,15 @@ export class Feed extends Component {
     //     content: this.state.comment,
     //   }),
     // })
-    // .then(response => response.json())
-    // // result : 백에서 전달됨. 통신할 때 정해준 값으로
-    // .then(result => {
-    //   console.log(result);
-    //   // if (result.message === 'success') {
-    //   //   // if 조건을 바꿔주기
-    //   //   console.log(result.access_token);
-    //   //   // localStorage.setItem('access_token', result.access_token);
-    // });
+    //   .then(response => response.json())
+    //   // result : 백에서 전달됨. 통신할 때 정해준 값으로
+    //   .then(result => {
+    //     console.log(result);
+    //     // if (result.message === 'success') {
+    //     //   // if 조건을 바꿔주기
+    //     //   console.log(result.access_token);
+    //     //   // localStorage.setItem('access_token', result.access_token);
+    //   });
 
     // mock - data 적용한 코드
     const { commentList } = this.state;
@@ -77,6 +78,7 @@ export class Feed extends Component {
           id: commentList.length + 1,
           userName: 'eessoo__',
           content: this.state.comment,
+          commentLike: false,
         },
       ]),
       comment: '',
@@ -89,6 +91,13 @@ export class Feed extends Component {
       event.preventDefault();
       this.submitComent();
     }
+  };
+
+  // 발생한 이벤트의 값을 따로 전달하지 않아도 되어서
+  handleLike = () => {
+    this.setState({
+      isLike: !this.state.isLike,
+    });
   };
 
   render() {
@@ -107,8 +116,12 @@ export class Feed extends Component {
           <img alt="feedImage" src={this.props.src} />
           <ul className="reactionsBox">
             <li className="reactionsLeft">
-              <button type="button">
-                <i className="far fa-heart"></i>
+              <button type="button" onClick={this.handleLike}>
+                {this.state.isLike ? (
+                  <i className="fas fa-heart"></i>
+                ) : (
+                  <i className="far fa-heart"></i>
+                )}
               </button>
               <button type="button">
                 <i className="far fa-comment"></i>
@@ -142,6 +155,7 @@ export class Feed extends Component {
                   key={comment.id}
                   name={comment.userName}
                   comment={comment.content}
+                  commnetLike={comment.commnetLike}
                 />
               );
             })}
