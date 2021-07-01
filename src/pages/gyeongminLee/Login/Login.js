@@ -34,24 +34,6 @@ class Login extends Component {
     }
   };
 
-  controlActivation = () => {
-    if (
-      this.state.idValue.includes('@') &&
-      this.state.passwordValue.length >= 5
-      //inputValid
-    ) {
-      this.setState({
-        buttonColor: '#0095F6',
-        submitButtonDisabled: false, //디스에이블드-아이디 패스워드가 무엇이냐에따라 달라짐- 스테이트가 아니다
-      });
-    } else {
-      this.setState({
-        buttonColor: '#B2DFFC',
-        submitButtonDisabled: true,
-      });
-    }
-  };
-
   goToMain = e => {
     fetch('http://10.58.0.86:8000/user/signin', {
       method: 'post',
@@ -80,7 +62,35 @@ class Login extends Component {
     //console.log(JsonResponse['ACCESS_TOKEN']);
     // const idValid = this.state.idValue.length >= 1; 멘토님의 것
     //const inputValid =this.state.idValue.includes('@')&&this.state.password.length>=5
-    const idValid = this.state.idValid.includes('@');
+    const idValid = this.state.idValue.includes('@');
+    const passwordValid = this.state.passwordValue.length >= 5;
+    // let button = null;
+
+    // if (idValid && passwordValid) {
+    //   button = (
+    //     <button
+    //       //onClick={this.goToMain}
+    //       type="button"
+    //       id="loginButton"
+    //       backgroundColor="#0095F6"
+    //     >
+    //       {' '}
+    //       로그인
+    //     </button>
+    //   );
+    // } else {
+    //   button = (
+    //     <button
+    //       //onClick={this.goToMain}
+    //       type="button"
+    //       id="loginButton"
+    //       backgroundColor="#B2DFFC"
+    //     >
+    //       {' '}
+    //       로그인
+    //     </button>
+    //   );
+    // }
 
     return (
       <>
@@ -88,32 +98,43 @@ class Login extends Component {
           <form id="logo" action="index.html" method="post">
             <a id="logo">westagram</a>
           </form>
-          {/* // 키업의 경우 손가락 오래 눌렀다 떼서 확인 가능 */}
+
           <form id="login-form" onChange={this.controlValue}>
-            {' '}
-            {/* 온체인지로 바꾸기  */}
             <input
-              //onChange={this.controlValue} // controlValue()
               type="text"
               className="text"
               id="id"
               placeholder="전화번호,사용자 이름 또는 이메일"
             />
             <input
-              //onChange={this.controlValue}
               type="password"
               className="text"
               id="password"
               placeholder="비밀번호"
             />
+
             <button
               //style={{ backgroundColor: this.state.buttonColor }} // 클래스 네임을 동적으로 바꾸어주자(무슨뜻인지 모름 ^^)
               //disabled
-              {isValid? 
+              //
+
+              //disabled={true}
+              //button={button}
+              // onChange={function () {
+              //   if (idValid && passwordValid) {
+              //     button.backgroundColor = '#0095F6';
+              //   }
+              // }}
+              // style={{
+              //   backgroundColor: '#B2DFFC',
+              // }}
               onClick={this.goToMain}
               type="button"
               id="loginButton"
-              
+              backgroundColor={
+                idValid && passwordValid === true ? '#B2DFFC' : '#0095F6'
+              }
+              disabled={idValid && passwordValid === true ? false : true}
             >
               로그인
             </button>
