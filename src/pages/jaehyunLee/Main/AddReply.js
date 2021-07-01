@@ -5,25 +5,34 @@ export class AddReply extends Component {
     content: '',
   };
 
+  setContent = e => {
+    this.setState({ content: e.target.value });
+  };
+
   setReply = e => {
     if (e.key === 'Enter') {
-      this.props.addReply(e.target.value, this.props.feedId);
-      e.target.value = '';
+      this.props.addReply(this.state.content, this.props.feedId);
+      this.setState({ content: '' });
+    } else if (e.type === 'click') {
+      this.props.addReply(this.state.content, this.props.feedId);
+      this.setState({ content: '' });
     }
   };
 
   render() {
     return (
       <div>
-        <div class="ReplyBar">
+        <div className="ReplyBar">
           <input
+            onChange={this.setContent}
             onKeyPress={this.setReply}
-            class="newReplyInput"
+            className="newReplyInput"
             type="text"
             placeholder="댓글 달기..."
+            value={this.state.content}
           />
-          <button class="forTab uploadReply">
-            <div onClick={this.setReply} class="uploadReply">
+          <button className="forTab uploadReply">
+            <div onClick={this.setReply} className="uploadReply">
               게시
             </div>
           </button>

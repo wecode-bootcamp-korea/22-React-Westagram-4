@@ -5,54 +5,54 @@ export default class AsideRight extends Component {
     return (
       <div>
         {' '}
-        <div class="mainRight main-right-media">
-          <div class="myAccount">
+        <div className="mainRight main-right-media">
+          <div className="myAccount">
             <img
               alt=""
-              class="profile"
+              className="profile"
               src="./images/jaehyunLee/Main/psa.png"
             />
-            <div class="accountName">
+            <div className="accountName">
               <p>wecode_bootcamp</p>
               <p>WeCode | 위코드</p>
             </div>
           </div>
 
-          <div class="navRightContainer">
-            <div class="navRightTop">
+          <div className="navRightContainer">
+            <div className="navRightTop">
               <div>스토리</div>
               <div>모두 보기</div>
             </div>
             <nav>
-              <div class="otherAccount">
+              <div className="otherAccount">
                 <img
                   alt=""
-                  class="profile"
+                  className="profile"
                   src="./images/jaehyunLee/Main/psa.png"
                 />
-                <div class="accountName">
+                <div className="accountName">
                   <p>wecode_bootcamp</p>
                   <p>WeCode | 위코드</p>
                 </div>
               </div>
-              <div class="otherAccount">
+              <div className="otherAccount">
                 <img
                   alt=""
-                  class="profile"
+                  className="profile"
                   src="./images/jaehyunLee/Main/psa.png"
                 />
-                <div class="accountName">
+                <div className="accountName">
                   <p>wecode_bootcamp</p>
                   <p>WeCode | 위코드</p>
                 </div>
               </div>
-              <div class="otherAccount">
+              <div className="otherAccount">
                 <img
                   alt=""
-                  class="profile"
+                  className="profile"
                   src="./images/jaehyunLee/Main/psa.png"
                 />
-                <div class="accountName">
+                <div className="accountName">
                   <p>wecode_bootcamp</p>
                   <p>WeCode | 위코드</p>
                 </div>
@@ -60,41 +60,41 @@ export default class AsideRight extends Component {
             </nav>
           </div>
 
-          <div class="navRightContainer">
-            <div class="navRightTop">
+          <div className="navRightContainer">
+            <div className="navRightTop">
               <div>스토리</div>
               <div>모두 보기</div>
             </div>
-            <nav class="storyBody">
-              <div class="otherAccount">
+            <nav className="storyBody">
+              <div className="otherAccount">
                 <img
                   alt=""
-                  class="profile"
+                  className="profile"
                   src="./images/jaehyunLee/Main/psa.png"
                 />
-                <div class="accountName">
+                <div className="accountName">
                   <p>wecode_bootcamp</p>
                   <p>WeCode | 위코드</p>
                 </div>
               </div>
-              <div class="otherAccount">
+              <div className="otherAccount">
                 <img
                   alt=""
-                  class="profile"
+                  className="profile"
                   src="./images/jaehyunLee/Main/psa.png"
                 />
-                <div class="accountName">
+                <div className="accountName">
                   <p>wecode_bootcamp</p>
                   <p>WeCode | 위코드</p>
                 </div>
               </div>
-              <div class="otherAccount">
+              <div className="otherAccount">
                 <img
                   alt=""
-                  class="profile"
+                  className="profile"
                   src="./images/jaehyunLee/Main/psa.png"
                 />
-                <div class="accountName">
+                <div className="accountName">
                   <p>wecode_bootcamp</p>
                   <p>WeCode | 위코드</p>
                 </div>
@@ -103,10 +103,10 @@ export default class AsideRight extends Component {
           </div>
           <div>
             <nav>
-              <ul class="footerRight">
-                <li class="floatLeft">intagram 정보</li>
-                <li class="floatLeft">지원</li>
-                <li class="floatLeft">등등.. 언어</li>
+              <ul className="footerRight">
+                <li className="floatLeft">intagram 정보</li>
+                <li className="floatLeft">지원</li>
+                <li className="floatLeft">등등.. 언어</li>
                 <li>&nbsp;</li>
               </ul>
             </nav>

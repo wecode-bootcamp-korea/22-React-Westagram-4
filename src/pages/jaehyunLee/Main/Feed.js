@@ -14,18 +14,18 @@ export default class Feed extends Component {
     } = this.props;
     return (
       <article id="article">
-        <div class="feedTop">
-          <div class="whoIsUploader">
+        <div className="feedTop">
+          <div className="whoIsUploader">
             <img
               alt=""
-              class="profile"
+              className="profile"
               src="./images/jaehyunLee/Main/psa.png"
             />
             <span>{feedUserName}</span>
           </div>
-          <i class="fas fa-ellipsis-h"></i>
+          <i className="fas fa-ellipsis-h"></i>
         </div>
-        <article class="feedImage">
+        <article className="feedImage">
           <img alt="" src={feedSrc} />
         </article>
         <Reply
@@ -34,6 +34,8 @@ export default class Feed extends Component {
           addReply={addReply}
           delReply={delReply}
           doLike={doLike}
+          numsOfLikes={this.props.numsOfLikes}
+          feedLike={this.props.feedLike}
         />
       </article>
     );

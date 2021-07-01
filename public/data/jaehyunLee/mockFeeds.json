@@ -4,6 +4,7 @@
     "userName": "목데이터1",
     "content": " Welcome to world best coding bootcamp!",
     "src": "./images/jaehyunLee/Main/iu.jpg",
+    "numsOfLikes": 110,
     "replies": [
       {
         "id": 1,
@@ -30,6 +31,7 @@
     "userName": "목데이터2",
     "content": " Welcome to  ",
     "src": "./images/jaehyunLee/Main/iu2.jpg",
+    "numsOfLikes": 120,
     "replies": [
       {
         "id": 1,
@@ -56,6 +58,7 @@
     "userName": "333333333333",
     "content": " Welcome ",
     "src": "./images/jaehyunLee/Main/iu3.jpg",
+    "numsOfLikes": 130,
     "replies": [
       {
         "id": 1,

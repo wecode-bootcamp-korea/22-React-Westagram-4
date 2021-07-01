@@ -18,11 +18,35 @@ export default class Feeds extends Component {
       });
   }
 
+  feedLike = feedId => {
+    let newFeeds = this.state.feeds;
+    console.log(newFeeds, feedId);
+    newFeeds[feedId].numsOfLikes = newFeeds[feedId].numsOfLikes + 1;
+    this.setState({ feeds: newFeeds });
+  };
+
+  addReply = (content, feedId) => {
+    const newReply = {
+      id: Math.random(),
+      userName: '재현',
+      content: ' ' + content,
+      isLike: true,
+    };
+
+    const { feeds } = this.state;
+
+    let newFeeds = feeds;
+    newFeeds[feedId].replies = [...newFeeds[feedId].replies, newReply];
+    this.setState({ feeds: newFeeds });
+  };
+
   delReply = (feedId, id) => {
     const { feeds } = this.state;
 
     let newFeeds = feeds;
-    newFeeds[feedId].reply = newFeeds[feedId].reply.filter(x => x.id !== id);
+    newFeeds[feedId].replies = newFeeds[feedId].replies.filter(
+      x => x.id !== id
+    );
 
     this.setState({ feeds: newFeeds });
   };
@@ -53,21 +77,6 @@ export default class Feeds extends Component {
     this.setState({ feeds: [...this.state.feeds, newFeed] });
   };
 
-  addReply = (content, feedId) => {
-    const newReply = {
-      id: Math.random(),
-      userName: '재현',
-      content: ' ' + content,
-      isLike: true,
-    };
-
-    const { feeds } = this.state;
-
-    let newFeeds = feeds;
-    newFeeds[feedId].replies = [...newFeeds[feedId].replies, newReply];
-    this.setState({ feeds: newFeeds });
-  };
-
   render() {
     return (
       <div>
@@ -75,7 +84,7 @@ export default class Feeds extends Component {
           <Feed
             // feeds={feed} feed를 넘겨서 this.props.feed.@@@으로 가는게 나을지도?
             // {src,userName,Id,replies} = this.props.feed
-
+            key={Math.random()}
             feedSrc={feed.src}
             feedUserName={feed.userName}
             feedId={feed.id}
@@ -83,6 +92,8 @@ export default class Feeds extends Component {
             addReply={this.addReply}
             delReply={this.delReply}
             doLike={this.doLike}
+            numsOfLikes={feed.numsOfLikes}
+            feedLike={this.feedLike}
           />
         ))}
       </div>

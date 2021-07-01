@@ -11,9 +11,9 @@ import './Main.scss';
 class Main extends React.Component {
   render() {
     return (
-      <div class="flex-center">
+      <div className="flex-center">
         <Nav />
-        <main class="mainDiv">
+        <main className="mainDiv">
           <Feeds />
           <AsideRight />
         </main>
