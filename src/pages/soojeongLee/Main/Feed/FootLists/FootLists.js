@@ -12,7 +12,7 @@ export class FootLists extends Component {
   render() {
     return FOOTLIST.map(footlists => {
       return (
-        <Link className="listDot" key={footlists.id}>
+        <Link to="" className="listDot" key={footlists.id}>
           {footlists.footlist}
         </Link>
       );

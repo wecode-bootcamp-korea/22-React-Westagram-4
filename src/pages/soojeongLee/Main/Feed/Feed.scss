@@ -103,26 +103,25 @@ article {
   }
 
   footer {
-    display: flex;
     background-color: #fff;
     border-top: 1px solid $border-color;
 
     .inputBox {
-      flex: 9;
+      display: flex;
       padding: 10px;
 
       .comment {
-        width: 100%;
+        flex: 9;
         border: none;
         outline: none;
       }
-    }
 
-    .commentSubmit {
-      @include button;
-      flex: 1;
-      &:hover {
-        color: $summit-color;
+      .commentSubmit {
+        @include button;
+        flex: 1;
+        &:hover {
+          color: $summit-color;
+        }
       }
     }
   }

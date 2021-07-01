@@ -54,8 +54,8 @@ class Main extends React.Component {
           <div className="main-right">
             <header className="userAccount">
               <h1>
-                <Link className="userProfile mainRightProfile"></Link>
-                <Link>
+                <Link to="" className="userProfile mainRightProfile"></Link>
+                <Link to="">
                   <strong>wecode_bootcamp</strong>
                   <span className="accountDec">WeCode - 위코드</span>
                 </Link>
@@ -84,13 +84,13 @@ class Main extends React.Component {
               <ul className="recommandUser">
                 <li className="otherUserProfile">
                   <span className="profileBox">
-                    <Link className="otherUserImg">
+                    <Link to="" className="otherUserImg">
                       <img
                         alt="User Profile"
                         src="images/soojeongLee/user5.jpg"
                       />
                     </Link>
-                    <Link>
+                    <Link to="">
                       limpack_official
                       <span className="followReco">회원님을 위한 추천</span>
                     </Link>
@@ -101,13 +101,13 @@ class Main extends React.Component {
                 </li>
                 <li className="otherUserProfile">
                   <span className="profileBox">
-                    <Link className="otherUserImg">
+                    <Link to="" className="otherUserImg">
                       <img
                         alt="User Profile"
                         src="images/soojeongLee/user6.jpg"
                       />
                     </Link>
-                    <Link>
+                    <Link to="">
                       les_photos_de_cat
                       <span className="followReco">
                         geee____nie님 외 1명이 팔로우합니다.
@@ -120,13 +120,13 @@ class Main extends React.Component {
                 </li>
                 <li className="otherUserProfile">
                   <span className="profileBox">
-                    <Link className="otherUserImg">
+                    <Link to="" className="otherUserImg">
                       <img
                         alt="User Profile"
                         src="images/soojeongLee/user7.jpg"
                       />
                     </Link>
-                    <Link>
+                    <Link to="">
                       mornstar_nail
                       <span className="followReco">
                         effie_yxz님 외 3명이 팔로우합니다

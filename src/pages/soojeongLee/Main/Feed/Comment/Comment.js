@@ -29,7 +29,9 @@ export class Comment extends Component {
   render() {
     return (
       <li>
-        <Link className="commentUserId">{this.props.name} </Link>
+        <Link to="" className="commentUserId">
+          {this.props.name}{' '}
+        </Link>
         <span className="commnetList">{this.props.comment}</span>
         <button className="commentLike" onClick={this.handleCommnetLike}>
           {this.state.commentLike ? (
@@ -38,7 +40,13 @@ export class Comment extends Component {
             <i className="far fa-heart"></i>
           )}
         </button>
-        <i class="far fa-trash-alt"></i>
+        {/* 추가 기능 구현 중 */}
+        {/* <button
+          className="commentDelete"
+          onClick={() => this.props.handleCommnetDelete(this.props.id)}
+        >
+          <i className="far fa-trash-alt"></i>
+        </button> */}
       </li>
     );
   }

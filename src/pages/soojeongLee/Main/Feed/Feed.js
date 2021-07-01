@@ -12,21 +12,12 @@ export class Feed extends Component {
   constructor() {
     super();
     this.state = {
-      // 초기셋팅
       comment: '',
       commentList: [],
       isLike: false,
     };
   }
 
-  // js 일 때,
-  // componentDidMount() {
-  //   this.setState({
-  //     commentList: COMMENT,
-  //   });
-  // }
-
-  // fetch 일 때,
   componentDidMount() {
     this.setState({
       commentList: this.props.commentData,
@@ -35,47 +26,16 @@ export class Feed extends Component {
   }
 
   hadComment = event => {
-    //input 값 입력되었을 때
     this.setState({
       comment: event.target.value,
     });
   };
 
-  submitComent() {
-    // mock - data 이전
-    //button을 클릭했을 때
-    // event.preventDefault();
-    // this.setState({
-    //   commentList: this.state.commentList.concat([this.state.comment]), // 댓글 추가
-    //   comment: '', // 인풋 밸류 초기화
-    // });
-
-    // fetch('http://10.58.3.29:8000/postings/post/2/comment/create', {
-    //   method: 'POST',
-    //   headers: {
-    //     Authorization:
-    //       'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MywiZXhwIjoxNjI1MDYxMTIyfQ.svGswFZtglbdmhoYojR8gmXD14fTI4L3Y3t2SRMSymE',
-    //   },
-    //   body: JSON.stringify({
-    //     content: this.state.comment,
-    //   }),
-    // })
-    //   .then(response => response.json())
-    //   // result : 백에서 전달됨. 통신할 때 정해준 값으로
-    //   .then(result => {
-    //     console.log(result);
-    //     // if (result.message === 'success') {
-    //     //   // if 조건을 바꿔주기
-    //     //   console.log(result.access_token);
-    //     //   // localStorage.setItem('access_token', result.access_token);
-    //   });
-
-    // mock - data 적용한 코드
-    const { commentList } = this.state;
+  submitComent = () => {
     this.setState({
-      commentList: commentList.concat([
+      commentList: this.state.commentList.concat([
         {
-          id: commentList.length + 1,
+          id: this.state.commentList.length + 1,
           userName: 'eessoo__',
           content: this.state.comment,
           commentLike: false,
@@ -83,22 +43,31 @@ export class Feed extends Component {
       ]),
       comment: '',
     });
-  }
+  };
 
   handleKeyPress = event => {
-    //input 창에서 enter press 했을 때
     if (event.key === 'Enter') {
       event.preventDefault();
       this.submitComent();
     }
   };
 
-  // 발생한 이벤트의 값을 따로 전달하지 않아도 되어서
   handleLike = () => {
     this.setState({
       isLike: !this.state.isLike,
     });
   };
+
+  // 추가 기능 구현 중
+  // handleCommnetDelete = id => {
+  //   const newCommentList = this.state.commentList.filter(comment => {
+  //     return comment.id !== id;
+  //   });
+
+  //   this.setState({
+  //     commentList: newCommentList,
+  //   });
+  // };
 
   render() {
     return (
@@ -156,30 +125,32 @@ export class Feed extends Component {
                   name={comment.userName}
                   comment={comment.content}
                   commnetLike={comment.commnetLike}
+                  // 추가 기능 구현 중
+                  // handleCommnetDelete={this.handleCommnetDelete}
+                  // id={comment.id}
                 />
               );
             })}
           </ul>
         </section>
         <footer>
-          <form className="inputBox">
+          <form className="inputBox" onKeyPress={this.handleKeyPress}>
             <input
               autoComplete="off"
               onChange={this.hadComment}
-              onKeyPress={this.handleKeyPress}
               className="comment"
               value={this.state.comment}
               type="text"
               placeholder="댓글 달기..."
             />
+            <button
+              onClick={this.submitComent}
+              className="commentSubmit"
+              type="button"
+            >
+              게시
+            </button>
           </form>
-          <button
-            onClick={this.submitComent}
-            className="commentSubmit"
-            type="submit"
-          >
-            게시
-          </button>
         </footer>
       </article>
     );

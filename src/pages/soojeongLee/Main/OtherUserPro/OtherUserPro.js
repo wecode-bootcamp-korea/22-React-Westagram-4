@@ -7,34 +7,20 @@ import { PROFILE } from '../OtherUserPro/OtherUserProData';
 import './OtherUserPro.scss';
 
 export class otherUserProp extends Component {
-  //여기서 데이터 받아오기
-
   render() {
     return PROFILE.map(propfileLists => {
       return (
         <li key={propfileLists.id}>
-          <Link className="otherUserImg">
+          <Link to="" className="otherUserImg">
             <img alt="User Profile" src={propfileLists.src} />
           </Link>
-          <Link>
+          <Link to="">
             {propfileLists.profileId}
             <span className="postTime">{propfileLists.postTime}</span>
           </Link>
         </li>
       );
     });
-
-    // return (
-    //   <li key={propfileLists.id}>
-    //     <Link className="otherUserImg">
-    //       <img alt="User Profile" src={propfileLists.src} />
-    //     </Link>
-    //     <Link>
-    //       {propfileLists.profileId}
-    //       <span className="postTime">{propfileLists.postTime}</span>
-    //     </Link>
-    //   </li>
-    // );
   }
 }
 

@@ -11,7 +11,6 @@ class Login extends Component {
   constructor() {
     super();
     this.state = {
-      // default 값 부여
       id: '',
       pw: '',
       isButtonOn: false,
@@ -117,7 +116,9 @@ class Login extends Component {
           </section>
 
           <footer>
-            <Link className="findPassword">비밀번호를 잊으셨나요?</Link>
+            <Link to="" className="findPassword">
+              비밀번호를 잊으셨나요?
+            </Link>
           </footer>
         </main>
       </div>

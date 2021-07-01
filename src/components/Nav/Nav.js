@@ -10,10 +10,10 @@ class Nav extends React.Component {
     return (
       <nav>
         <h1>
-          <Link to="/login-Soojeong" className="iconLogo">
+          <Link to="" className="iconLogo">
             <i className="fab fa-instagram"></i>
           </Link>
-          <Link to="/login-Soojeong" className="letterLogo">
+          <Link to="" className="letterLogo">
             <span>Westagram</span>
           </Link>
         </h1>
