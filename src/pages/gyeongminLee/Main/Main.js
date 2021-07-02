@@ -1,7 +1,8 @@
 // 필수
 import React from 'react';
 import Comment from './Comment/Comment';
-import commentData from '../data/commentData';
+//import commentData from '../data/commentData';
+import commentData from '../data/commentData.json';
 
 // 컴포넌트
 import Nav from '../../../components/Nav/Nav';
@@ -15,11 +16,27 @@ class Main extends React.Component {
       list: [],
     };
   }
-
+  //댓글 가져오는 페치 함수
   componentDidMount() {
-    this.setState({
-      list: commentData,
-    });
+    fetch('../data/commentData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          //list: this.state.list.concat([this.state.newCommentValue]),
+          list: [
+            ...this.state.list,
+            {
+              id: this.state.list.length + 1,
+              userName: 'wecode',
+              content: this.state.newCommentValue,
+            },
+          ],
+
+          newCommentValue: '', //이거 빼고 한번 해보기
+        });
+      });
   }
 
   handleCommentValue = e => {
@@ -34,8 +51,7 @@ class Main extends React.Component {
         {
           newCommentValue: event.target.value,
         },
-        () => this.activateSubmitButton(event) //(중요!!!!!!!)콜백함수 - 이것때문에 함수 다시 한번 실행되어 댓글이 두개씩 달림!!
-        // 일단 제외하고 제이쓴 기능 구현하기 !!!!!!!!(이후 리팩토링 필요)
+        () => this.activateSubmitButton(event)
       );
     } else if (event.target.type === 'button') {
       this.setState(
@@ -46,7 +62,7 @@ class Main extends React.Component {
       );
     }
   };
-
+  //댓글을 만들어주는 함수 - 그러면 위의 자동으로 데이터를 가져오는 함수는 어떻게 되는것 ?
   controlKeyPress = event => {
     event.preventDefault();
     const { list, newCommentValue } = this.state;
@@ -67,9 +83,8 @@ class Main extends React.Component {
       //this.num += 1;
     }
   };
-
+  //댓글 달리면 버튼 변화 함수 = > 없애야함
   activateSubmitButton = event => {
-    // 이 e 랑 아래의 핸들키프레스의 e 가 다른가 ?
     if (this.state.newCommentValue.length > 0) {
       this.setState({
         submitButtonColor: '#0095F6',
@@ -140,16 +155,14 @@ class Main extends React.Component {
               </div>
 
               <div className="feedCommentsListContainer">
-                {this.state.list.map(comment => {
-                  return (
-                    <Comment
-                      username={comment.username}
-                      comment={comment.content}
-                      key={comment.content}
-                      value={newCommentValue}
-                    />
-                  );
-                })}
+                return (
+                <Comment
+                  id={commentData.id} // 여기에서는 fetch가 안되어서 어떤 데이터의 아이디를 가져와야하는지 모르는거 아닐까?
+                  comment={comment.content}
+                  userName={comment.userName}
+                  value={newCommentValue}
+                />
+                );
               </div>
 
               <div id="makingCommentContainer" onKeyUp={this.controlButton}>
