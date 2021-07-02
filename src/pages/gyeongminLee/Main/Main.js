@@ -24,17 +24,7 @@ class Main extends React.Component {
       .then(res => res.json())
       .then(data => {
         this.setState({
-          //list: this.state.list.concat([this.state.newCommentValue]),
-          list: [
-            ...this.state.list,
-            {
-              id: this.state.list.length + 1,
-              userName: 'wecode',
-              content: this.state.newCommentValue,
-            },
-          ],
-
-          newCommentValue: '', //이거 빼고 한번 해보기
+          list: data,
         });
       });
   }
@@ -44,63 +34,45 @@ class Main extends React.Component {
       commentValue: e.target.value,
     });
   };
-  //아래의 컨트롤 - 버튼을 두개로 나눌 필요가 없다 . 두개를 감싸고 있는 부모태그가 둘 중 하나를 감지했을때 타겟.뫄뫄 =='' 로 뭐에대한 변화인지 감지하면 되기때문이다.
+
   controlButton = event => {
     if (event.target.type === 'text') {
-      this.setState(
-        {
-          newCommentValue: event.target.value,
-        },
-        () => this.activateSubmitButton(event)
-      );
+      this.setState({
+        newCommentValue: event.target.value,
+      });
     } else if (event.target.type === 'button') {
-      this.setState(
-        {
-          submitButtonColor: event.target.backgroundColor,
-        },
-        () => this.activateSubmitButton(event)
-      );
+      this.setState({
+        submitButtonColor: event.target.backgroundColor,
+      });
     }
   };
   //댓글을 만들어주는 함수 - 그러면 위의 자동으로 데이터를 가져오는 함수는 어떻게 되는것 ?
+
   controlKeyPress = event => {
     event.preventDefault();
     const { list, newCommentValue } = this.state;
     if (event.key === 'Enter') {
       this.setState({
         //list: this.state.list.concat([this.state.newCommentValue]),
-        list: [
-          ...list,
-          {
-            id: list.length + 1,
-            userName: 'wecode',
-            content: newCommentValue,
-          },
-        ],
+        //list: [
+        list: list.concat([newCommentValue]),
+        // ...list,
+        // {
+        //   id: list.length + 1,
+        //   userName: 'wecode',
+        //   content: newCommentValue,
+        // },
+        //  ],
 
-        newCommentValue: '', //이거 빼고 한번 해보기
-      });
-      //this.num += 1;
-    }
-  };
-  //댓글 달리면 버튼 변화 함수 = > 없애야함
-  activateSubmitButton = event => {
-    if (this.state.newCommentValue.length > 0) {
-      this.setState({
-        submitButtonColor: '#0095F6',
-        submitButtonDisabled: false,
-      });
-    } else {
-      this.setState({
-        submitButtonColor: '#B2DFFC',
-        submitButtonDisabled: true,
+        // newCommentValue: '', //이거 빼고 한번 해보기
       });
     }
-    this.controlKeyPress(event);
   };
 
   render() {
     const { list, newCommentValue } = this.state;
+    const commentValid = this.state.newCommentValue.length > 0;
+
     return (
       <>
         <Nav />
@@ -155,14 +127,15 @@ class Main extends React.Component {
               </div>
 
               <div className="feedCommentsListContainer">
-                return (
-                <Comment
-                  id={commentData.id} // 여기에서는 fetch가 안되어서 어떤 데이터의 아이디를 가져와야하는지 모르는거 아닐까?
-                  comment={comment.content}
-                  userName={comment.userName}
-                  value={newCommentValue}
-                />
-                );
+                {list.map(comment => {
+                  return newCommentValue;
+                  // <Comment
+                  //   username={comment.username}
+                  //   comment={comment.content}
+                  //   key={comment.content}
+                  //   value={newCommentValue}
+                  // />
+                })}
               </div>
 
               <div id="makingCommentContainer" onKeyUp={this.controlButton}>
@@ -172,14 +145,14 @@ class Main extends React.Component {
                   id="makingComment"
                   placeholder="댓글을 입력하세요"
                   onChange={this.controlKeyPress}
-                  // onKeyUp={this.controlComment}
                 />
                 <button
-                  //onChange={this.controlButton}
-                  style={{ backgroundColor: this.state.submitButtonColor }}
+                  style={{
+                    backgroundColor: commentValid ? '#0095F6' : '#B2DFFC',
+                  }}
+                  disabled={commentValid ? false : true}
                   type="button"
                   id="submitCommentButton"
-                  //disabled //={this.submitButtonDisabled}
                 >
                   게시
                 </button>
@@ -201,10 +174,7 @@ class Main extends React.Component {
               <div id="recommandedAccount">
                 <div className="recommandedAccountHeader">
                   <div id="recommandedAccountHeaderText">
-                    <span id="recommandedAccountForMe">
-                      {' '}
-                      회원님을 위한 추천{' '}
-                    </span>
+                    <span id="recommandedAccountForMe">회원님을 위한 추천</span>
                     <span id="seeAll">모두보기</span>
                   </div>
                   <div className="recommandedAccountList">
