@@ -70,7 +70,6 @@ class Login extends Component {
             />
 
             <button
-              //style={{ backgroundColor: this.state.buttonColor }} // 클래스 네임을 동적으로 바꾸어주자(무슨뜻인지 모름 ^^)
               onClick={this.goToMain}
               type="button"
               id="loginButton"

@@ -1,8 +1,7 @@
 // 필수
 import React from 'react';
 import Comment from './Comment/Comment';
-//import commentData from '../data/commentData';
-import commentData from '../data/commentData.json';
+import commentData from '../data/commentData';
 
 // 컴포넌트
 import Nav from '../../../components/Nav/Nav';
@@ -16,17 +15,11 @@ class Main extends React.Component {
       list: [],
     };
   }
-  //댓글 가져오는 페치 함수
+
   componentDidMount() {
-    fetch('../data/commentData.json', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          list: data,
-        });
-      });
+    this.setState({
+      list: commentData,
+    });
   }
 
   handleCommentValue = e => {
@@ -46,25 +39,22 @@ class Main extends React.Component {
       });
     }
   };
-  //댓글을 만들어주는 함수 - 그러면 위의 자동으로 데이터를 가져오는 함수는 어떻게 되는것 ?
 
   controlKeyPress = event => {
-    event.preventDefault();
+    //event.preventDefault();
     const { list, newCommentValue } = this.state;
     if (event.key === 'Enter') {
       this.setState({
-        //list: this.state.list.concat([this.state.newCommentValue]),
-        //list: [
-        list: list.concat([newCommentValue]),
-        // ...list,
-        // {
-        //   id: list.length + 1,
-        //   userName: 'wecode',
-        //   content: newCommentValue,
-        // },
-        //  ],
+        list: [
+          ...list,
+          {
+            id: list.length + 1,
+            userName: 'glorious_min',
+            content: newCommentValue,
+          },
+        ],
 
-        // newCommentValue: '', //이거 빼고 한번 해보기
+        newCommentValue: '', //이거 빼고 한번 해보기
       });
     }
   };
@@ -72,7 +62,6 @@ class Main extends React.Component {
   render() {
     const { list, newCommentValue } = this.state;
     const commentValid = this.state.newCommentValue.length > 0;
-
     return (
       <>
         <Nav />
@@ -128,13 +117,14 @@ class Main extends React.Component {
 
               <div className="feedCommentsListContainer">
                 {list.map(comment => {
-                  return newCommentValue;
-                  // <Comment
-                  //   username={comment.username}
-                  //   comment={comment.content}
-                  //   key={comment.content}
-                  //   value={newCommentValue}
-                  // />
+                  return (
+                    <Comment
+                      userName={comment.userName}
+                      comment={comment.content}
+                      // key={comment.content}
+                      value={newCommentValue}
+                    />
+                  );
                 })}
               </div>
 
@@ -144,15 +134,19 @@ class Main extends React.Component {
                   type="text"
                   id="makingComment"
                   placeholder="댓글을 입력하세요"
-                  onChange={this.controlKeyPress}
+                  onKeyUp={this.controlKeyPress}
+                  // onKeyUp={this.controlComment}
                 />
                 <button
+                  //onChange={this.controlButton}
                   style={{
                     backgroundColor: commentValid ? '#0095F6' : '#B2DFFC',
                   }}
+                  //onChange={this.controlKeyPress()}
                   disabled={commentValid ? false : true}
                   type="button"
                   id="submitCommentButton"
+                  //disabled //={this.submitButtonDisabled}
                 >
                   게시
                 </button>
@@ -174,7 +168,10 @@ class Main extends React.Component {
               <div id="recommandedAccount">
                 <div className="recommandedAccountHeader">
                   <div id="recommandedAccountHeaderText">
-                    <span id="recommandedAccountForMe">회원님을 위한 추천</span>
+                    <span id="recommandedAccountForMe">
+                      {' '}
+                      회원님을 위한 추천{' '}
+                    </span>
                     <span id="seeAll">모두보기</span>
                   </div>
                   <div className="recommandedAccountList">
