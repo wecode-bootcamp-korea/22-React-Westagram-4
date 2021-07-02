@@ -1,0 +1,247 @@
+@import '../../../styles/variables.scss';
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fafafa;
+  height: 1000vh;
+  width: 100vw;
+}
+
+.navBarCenter {
+  display: flex;
+  align-items: center;
+}
+
+.navBarRight {
+  display: flex;
+  align-items: center;
+
+  i {
+    font-size: 35px;
+    padding: 0px 10px;
+  }
+}
+
+.mainDiv {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  width: 1100px;
+}
+
+.feeds {
+  border: 2px #ececec solid;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  flex: 7;
+}
+
+.mainRight {
+  flex: 3;
+}
+
+.myAccount {
+  background-color: #fafafa;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  padding-left: 12px;
+}
+
+.accountName {
+  margin-left: 12px;
+}
+
+.navRightContainer {
+  margin-bottom: 12px;
+  width: 390px;
+  background-color: white;
+  border: #ececec 2px solid;
+}
+
+.navRightTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+}
+
+.otherAccount {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding-left: 12px;
+  margin-bottom: 12px;
+}
+
+#article {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.feedImage {
+  width: 820px;
+  height: 820px;
+}
+
+.feedImage img {
+  width: 100%;
+  height: 100%;
+}
+
+.feedTop {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+
+  i {
+    margin-right: 10px;
+  }
+}
+
+.whoIsUploader {
+  margin: 5px 0px;
+  padding: 0px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+
+  span {
+    margin-left: 10px;
+  }
+}
+
+.profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.feedAddOn {
+  display: flex;
+  justify-content: space-between;
+  font-size: 30px;
+  color: rgb(122, 255, 188);
+  background-color: white;
+}
+
+.feedAddOnLeft {
+  margin-left: 12px;
+
+  i {
+    color: red;
+  }
+
+  .none {
+    display: none;
+  }
+}
+
+.feedAddOnLeft:hover,
+.feedAddOnRight:hover {
+  cursor: pointer;
+}
+
+.feedAddOnRight {
+  margin-right: 12px;
+
+  .none {
+    display: none;
+  }
+  i {
+    color: red;
+  }
+}
+
+.numOfLikesMain {
+  display: flex;
+  height: 50px;
+  align-items: center;
+  background-color: #ffffff;
+  font-size: 20px;
+}
+
+.numOfLikes {
+  margin-left: 12px;
+
+  .profile {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.newReplyInput {
+  border: none;
+  height: 60px;
+  text-indent: 15px;
+}
+
+.newReplyInput:focus {
+  outline: none;
+}
+
+.newReplyInput::placeholder {
+  text-indent: 15px;
+}
+
+.uploadReply {
+  margin-right: 10px;
+  color: rgb(0, 153, 255);
+}
+
+.replies {
+  margin-left: 12px;
+  border-bottom: 2px #efefef solid;
+}
+
+.reply {
+  display: flex;
+}
+
+.ReplyBar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.deleteReply {
+  background-color: blue;
+}
+
+.delete {
+  border: none;
+  width: 15px;
+  height: 15px;
+  background-color: inherit;
+  margin-right: 15px;
+}
+
+.forTab {
+  border: none;
+  background-color: inherit;
+}
+
+.forTab:focus {
+  outline: none;
+}
+
+.none {
+  display: none;
+}
+
+.noNone {
+  display: '';
+  border: none;
+  background-color: inherit;
+}
+
+.floatLeft {
+  float: left;
+}

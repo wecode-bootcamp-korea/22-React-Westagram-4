@@ -1,6 +1,7 @@
 @import '../../styles/variables.scss';
 
-nav {
+.nav {
+  // @include flex-center;
   height: 53px;
   display: flex;
   justify-content: space-between;
