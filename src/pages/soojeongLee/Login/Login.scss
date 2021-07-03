@@ -40,14 +40,10 @@
           border: none;
           border-radius: 3px;
           color: #fff;
-        }
-
-        .inputNone {
-          background-color: #c0dffd;
-        }
-
-        .inputIdAndPw {
           background-color: #0096f6;
+          &:disabled {
+            background-color: #c0dffd;
+          }
         }
       }
     }

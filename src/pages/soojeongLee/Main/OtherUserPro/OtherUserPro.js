@@ -8,15 +8,15 @@ import './OtherUserPro.scss';
 
 export class otherUserProp extends Component {
   render() {
-    return PROFILE.map(propfileLists => {
+    return PROFILE.map(propfile => {
       return (
-        <li key={propfileLists.id}>
+        <li key={propfile.id}>
           <Link to="" className="otherUserImg">
-            <img alt="User Profile" src={propfileLists.src} />
+            <img alt="User Profile" src={propfile.src} />
           </Link>
           <Link to="">
-            {propfileLists.profileId}
-            <span className="postTime">{propfileLists.postTime}</span>
+            {propfile.profileId}
+            <span className="postTime">{propfile.postTime}</span>
           </Link>
         </li>
       );

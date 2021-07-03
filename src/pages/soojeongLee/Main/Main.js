@@ -1,14 +1,11 @@
-// 라이브러리
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// 컴포넌트
 import Nav from '../../../components/Nav/Nav';
 import Feed from '../Main/Feed/Feed';
 import OtherUserPro from './OtherUserPro/OtherUserPro';
 import FootLists from '../Main/Feed/FootLists/FootLists';
 
-// css
 import './Main.scss';
 
 class Main extends React.Component {
@@ -20,9 +17,7 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/data/soojeonglee/feedData.json', {
-      method: 'GET',
-    })
+    fetch('/data/soojeonglee/feedData.json')
       .then(res => res.json())
       .then(data => {
         this.setState({

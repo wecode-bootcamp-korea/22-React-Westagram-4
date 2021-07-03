@@ -85,30 +85,34 @@ export class Feed extends Component {
           <img alt="feedImage" src={this.props.src} />
           <ul className="reactionsBox">
             <li className="reactionsLeft">
-              <button type="button" onClick={this.handleLike}>
+              <button
+                className="leftButton"
+                type="button"
+                onClick={this.handleLike}
+              >
                 {this.state.isLike ? (
-                  <i className="fas fa-heart"></i>
+                  <i className="fas fa-heart" />
                 ) : (
-                  <i className="far fa-heart"></i>
+                  <i className="far fa-heart" />
                 )}
               </button>
-              <button type="button">
-                <i className="far fa-comment"></i>
+              <button className="leftButton" type="button">
+                <i className="far fa-comment" />
               </button>
-              <button type="button">
-                <i className="fas fa-external-link-alt"></i>
+              <button className="leftButton" type="button">
+                <i className="fas fa-external-link-alt" />
               </button>
             </li>
             <li className="reactionsRight">
-              <button>
-                <i className="far fa-bookmark"></i>
+              <button className="rightButton">
+                <i className="far fa-bookmark" />
               </button>
             </li>
           </ul>
           <h2>
             <Link className="userProfile feedConUser"></Link>
             <b>eessoo__</b>님 외
-            <button>
+            <button className="likeCount">
               <b> 7명</b>
             </button>
             이 좋아합니다.
@@ -133,7 +137,7 @@ export class Feed extends Component {
             })}
           </ul>
         </section>
-        <footer>
+        <footer className="feedFooter">
           <form className="inputBox" onKeyPress={this.handleKeyPress}>
             <input
               autoComplete="off"

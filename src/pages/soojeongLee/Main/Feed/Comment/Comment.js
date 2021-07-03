@@ -1,9 +1,6 @@
-//라이브러리
-
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-//스타일
 import './Comment.scss';
 
 export class Comment extends Component {
@@ -30,7 +27,7 @@ export class Comment extends Component {
     return (
       <li>
         <Link to="" className="commentUserId">
-          {this.props.name}{' '}
+          {this.props.name}
         </Link>
         <span className="commnetList">{this.props.comment}</span>
         <button className="commentLike" onClick={this.handleCommnetLike}>
