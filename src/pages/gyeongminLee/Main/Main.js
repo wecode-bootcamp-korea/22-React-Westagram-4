@@ -1,8 +1,9 @@
 // 필수
 import React from 'react';
 import Comment from './Comment/Comment';
-import commentData from '../data/commentData';
-
+import Feed from '../Feed/Feed';
+//import commentData from '../data/commentData';
+//import CommentData from '../';
 // 컴포넌트
 import Nav from '../../../components/Nav/Nav';
 import './Main.scss';
@@ -11,14 +12,21 @@ class Main extends React.Component {
     super();
     this.state = {
       newCommentValue: '',
-      list: [],
+      commentList: [],
+      feedList: [],
     };
   }
 
   componentDidMount() {
-    this.setState({
-      list: commentData,
-    });
+    fetch('http://localhost:3000/data/commentData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          commentList: data,
+        });
+      });
   }
 
   controlButton = event => {
@@ -34,13 +42,13 @@ class Main extends React.Component {
   };
 
   controlKeyPress = event => {
-    const { list, newCommentValue } = this.state;
+    const { commentList, newCommentValue } = this.state;
     if (event.key === 'Enter') {
       this.setState({
-        list: [
-          ...list,
+        commentList: [
+          ...commentList,
           {
-            id: list.length + 1,
+            id: commentList.length + 1,
             userName: 'glorious_min',
             content: newCommentValue,
           },
@@ -52,7 +60,7 @@ class Main extends React.Component {
   };
 
   render() {
-    const { list, newCommentValue } = this.state;
+    const { commentList, newCommentValue } = this.state;
     const commentValid = this.state.newCommentValue.length > 0;
     return (
       <>
@@ -105,7 +113,7 @@ class Main extends React.Component {
               </div>
 
               <div className="feedCommentsListContainer">
-                {list.map(comment => {
+                {commentList.map(comment => {
                   return (
                     <Comment
                       userName={comment.userName}
@@ -136,6 +144,7 @@ class Main extends React.Component {
                 </button>
               </div>
             </article>
+            <article>{/* <Feed /> */}</article>
           </div>
 
           <div className="main-right main-right-media">
