@@ -8,27 +8,39 @@ import Nav from '../../../components/Nav/Nav';
 import './Main.scss';
 class Main extends React.Component {
   constructor() {
+    console.log('라이프사이클 확인 : constructor');
     super();
     this.state = {
-      submitButtonColor: 'none',
       newCommentValue: '',
       list: [],
     };
   }
 
+  //인풋창에 내가 아무것도 입력하지 않았을떄 화면이 렌더링된 이후 렌더링되는 함수
+  // json 의 데이터들이 setState 된 이후 렌더링 된다.
   componentDidMount() {
+    console.log('라이프사이클 확인 :  componentDidMount ');
     this.setState({
       list: commentData,
     });
+    //console.log(commentData);
+    //commentData가 전달하는 것
+    // [{…}, {…}, {…}]
+    // 0: {id: 1, userName: "wecode", content: "Welcome to world best coding bootcamp!"}
+    // 1: {id: 2, userName: "joonsikyang", content: "Hi there."}
+    // 2: {id: 3, userName: "jayPark", content: "Hey."}
   }
 
-  handleCommentValue = e => {
-    this.setState({
-      commentValue: e.target.value,
-    });
-  };
+  // handleCommentValue = e => {
+  //   console.log('라이프사이클 확인 : handleCommentValue');
+  //   this.setState({
+  //     commentValue: e.target.value,
+  //   });
+  // };
 
   controlButton = event => {
+    console.log('라이프사이클 확인 :  controlButton');
+
     if (event.target.type === 'text') {
       this.setState({
         newCommentValue: event.target.value,
@@ -41,9 +53,12 @@ class Main extends React.Component {
   };
 
   controlKeyPress = event => {
+    console.log('라이프사이클 확인 :  controlKeyPress');
     //event.preventDefault();
     const { list, newCommentValue } = this.state;
     if (event.key === 'Enter') {
+      console.log(list); // 3개의 json 데이터 항상 들어있음
+      console.log(newCommentValue); // 방금 내가 입력한 값
       this.setState({
         list: [
           ...list,
@@ -56,10 +71,17 @@ class Main extends React.Component {
 
         newCommentValue: '', //이거 빼고 한번 해보기
       });
+      console.log(list); //3개의 json 데이터 항상 들어있음
+      console.log(newCommentValue); // 방금 내가 입력한 값
+      console.log(...list);
+      console.log([...list]);
     }
   };
 
   render() {
+    console.log('라이프사이클 확인 : main.js render ');
+    //console.log(commentData);
+    //내가 아무것도 입력안했을떄 여기에서 commentData가 두번찍힘
     const { list, newCommentValue } = this.state;
     const commentValid = this.state.newCommentValue.length > 0;
     return (
@@ -68,6 +90,21 @@ class Main extends React.Component {
         <main className="mainPageMain">
           <div className="feeds">
             <article>
+              {/* /*피드 구성하는 법 
+              
+              article 이 중심 
+              달라지게 될 부분들으 뗴어내어 json 으로 만든다 / 페치 함수 사용하기 
+              중복되는 부분들은 맵함수로 돌려버린다 
+              중복되는 부분들 태그 정리해 보기 ?
+
+              하지만 일단은 모두 같은 피드가 나오도록 먼저 확인해보는것이 중요할것 같다 
+
+
+
+              
+              
+              
+              */}
               <div className="feedTop">
                 <img
                   alt="feed profile"
@@ -85,7 +122,6 @@ class Main extends React.Component {
                   src="https://i.pinimg.com/originals/5d/99/89/5d9989c2ddc5aaa8a8627df55c998b62.jpg"
                 />
               </div>
-
               <div id="feedFunction">
                 <img
                   className="feedIcon"
@@ -107,9 +143,7 @@ class Main extends React.Component {
                   src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/share.png"
                 />
               </div>
-
               <div id="howManyLikes">spanish_ghetto님외 34명이 좋아합니다</div>
-
               <div id="feedContentsContainer">
                 <span id="feedContentsId">glorious_min</span>
                 <span id="feedContents">사진 찍었다.</span>
@@ -117,24 +151,29 @@ class Main extends React.Component {
 
               <div className="feedCommentsListContainer">
                 {list.map(comment => {
+                  console.log(
+                    '라이프사이클 확인 :  main.js render() 의 list.map 내부 :'
+                  );
+
                   return (
-                    <Comment
+                    <Comment // 이거 형식이 어떻게 된거지 ??? Comment.js 와의 비교
+                      // 왜 Comment 태그안에 이런게 들어있지?
                       userName={comment.userName}
                       comment={comment.content}
-                      // key={comment.content}
+                      id={comment.id}
                       value={newCommentValue}
                     />
-                  );
+                  ); // ;왜 이걸 댓글안써짐, 데이터 못불러옴
                 })}
               </div>
-
-              <div id="makingCommentContainer" onKeyUp={this.controlButton}>
+              <div id="makingCommentContainer" onChange={this.controlButton}>
                 <i id="smileIcon" class="far fa-smile"></i>
                 <input
                   type="text"
                   id="makingComment"
                   placeholder="댓글을 입력하세요"
                   onKeyUp={this.controlKeyPress}
+
                   // onKeyUp={this.controlComment}
                 />
                 <button
