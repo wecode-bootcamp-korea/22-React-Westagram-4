@@ -18,26 +18,25 @@ class Main extends React.Component {
       howManyLikes: '',
     };
   }
-  setFeedList() {
-    this.state({
-      feedList: [
-        //...feedList,
-        {
-          //id: feedList.length + 1,
-          feedId: 'glorious_min',
-          feedImage: '',
-          howManyLikes: 'lalala 님 외 80명이 좋아요를 눌렀습니다',
-          feedContent: '아무것도 하기 싫다',
-        },
-      ],
-    });
-  }
+  // setFeedList() {
+  //   this.state({
+  //     feedList: [
+  //     ...feedList,
+  //       {
+  //         id: FEED.length + 1,
+  //         feedId: 'glorious_min',
+  //         feedImage: '',
+  //         howManyLikes: 'lalala 님 외 80명이 좋아요를 눌렀습니다',
+  //         feedContent: '아무것도 하기 싫다',
+  //       },
+  //     ],
+  //   });
+  // }
 
   componentDidMount() {
     this.setState({
       feedList: FEED,
     });
-    console.log(FEED); // 아닙 ! 옴 !!! 왜 1번만 나오지 ???
   }
 
   render() {
@@ -48,14 +47,16 @@ class Main extends React.Component {
           <div className="feeds">
             {this.state.feedList.map(feed => {
               return (
-                <Feed
-                  id={feed.id}
-                  feedProfilePhoto={feed.feedProfilePhoto}
-                  feedImage={feed.feedImage}
-                  feedId={feed.feedId}
-                  howManyLikes={feed.howManyLikes}
-                  feedContent={feed.feedContent}
-                />
+                <article key={feed.id}>
+                  <Feed
+                    id={feed.id}
+                    feedProfilePhoto={feed.feedProfilePhoto}
+                    feedImage={feed.feedImage}
+                    feedId={feed.feedId}
+                    howManyLikes={feed.howManyLikes}
+                    feedContent={feed.feedContent}
+                  />
+                </article>
               );
             })}
           </div>

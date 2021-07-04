@@ -4,9 +4,10 @@ import React, { Component } from 'react';
 
 class Comment extends Component {
   render() {
+    //console.log(this.props.id);
     return (
       <>
-        <li>
+        <li key={this.props.commentKey}>
           <span>{this.props.userName}</span>
           <span>{this.props.comment}</span>
 

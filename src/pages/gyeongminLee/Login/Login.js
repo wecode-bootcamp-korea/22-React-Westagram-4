@@ -45,8 +45,8 @@ class Login extends Component {
   };
 
   render() {
-    const idValid = this.state.idValue.includes('@');
-    const passwordValid = this.state.passwordValue.length >= 5;
+    const isAllInputValueValid =
+      this.state.idValue.includes('@') && this.state.passwordValue.length >= 5;
 
     return (
       <>
@@ -73,10 +73,10 @@ class Login extends Component {
               onClick={this.goToMain}
               type="button"
               id="loginButton"
-              backgroundcolor={
-                idValid && passwordValid === true ? '#B2DFFC' : '#0095F6'
-              }
-              disabled={idValid && passwordValid === true ? false : true}
+              style={{
+                backgroundColor: isAllInputValueValid ? '#0095F6' : '#B2DFFC',
+              }}
+              disabled={isAllInputValueValid ? false : true}
             >
               로그인
             </button>
