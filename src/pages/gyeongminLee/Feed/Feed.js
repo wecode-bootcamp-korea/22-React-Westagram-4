@@ -7,6 +7,7 @@ class Feed extends Component {
     this.state = {
       newCommentValue: '',
       commentList: [],
+      commentKey: null,
     };
   }
 
@@ -55,7 +56,7 @@ class Feed extends Component {
     const { commentList, newCommentValue } = this.state;
     const commentValid = this.state.newCommentValue.length > 0;
 
-    console.log(this.props.feed); // 므ㅓ라고 쳐야 전체 배열을 뽑아낼 수 있지??
+    //console.log(this.props.feed); // 므ㅓ라고 쳐야 전체 배열을 뽑아낼 수 있지??
     return (
       <>
         {/* 키를 Main.js 에서 주기 <article key={this.props.id}> */}
@@ -107,7 +108,7 @@ class Feed extends Component {
                 <Comment
                   userName={comment.userName}
                   comment={comment.content}
-                  commentKey={comment.id}
+                  key={comment.id}
 
                   //value={newCommentValue}
                 />

@@ -7,7 +7,7 @@ class Comment extends Component {
     //console.log(this.props.id);
     return (
       <>
-        <li key={this.props.commentKey}>
+        <li key={this.props.key}>
           <span>{this.props.userName}</span>
           <span>{this.props.comment}</span>
 

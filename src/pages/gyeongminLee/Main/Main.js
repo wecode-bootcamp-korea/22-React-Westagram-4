@@ -1,4 +1,3 @@
-// 필수
 import React from 'react';
 //import Comment from './Comment/Comment';
 import Feed from '../Feed/Feed';

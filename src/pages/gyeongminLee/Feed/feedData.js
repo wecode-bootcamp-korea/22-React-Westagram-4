@@ -1,7 +1,7 @@
 const FEED = [
   {
     id: 1,
-    feedId: 'glorious_min',
+    userName: 'glorious_min',
     feedProfilePhoto:
       'https://cdn.pixabay.com/photo/2020/12/06/16/16/cosmos-5809271_1280.png',
     feedImage:
@@ -11,7 +11,7 @@ const FEED = [
   },
   {
     id: 2,
-    feedId: 'lalalala',
+    userName: 'lalalala',
     feedProfilePhoto:
       'https://cdn.pixabay.com/photo/2021/05/14/22/11/faces-6254573_1280.jpg',
     feedImage:
@@ -21,7 +21,7 @@ const FEED = [
   },
   {
     id: 3,
-    feedId: 'huhuhihi',
+    userName: 'huhuhihi',
     feedProfilePhoto:
       'https://cdn.pixabay.com/photo/2020/07/21/17/48/love-5426977_1280.jpg',
     feedImage:
