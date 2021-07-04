@@ -1,11 +1,8 @@
-//라이브러리
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-//컴포넌트
 import Comment from './Comment/Comment';
 
-// css
 import '../Feed/Feed.scss';
 
 export class Feed extends Component {
@@ -13,17 +10,17 @@ export class Feed extends Component {
     super();
     this.state = {
       comment: '',
-      commentList: [],
-      isLike: false,
+      // commentList: [],
+      // isLike: false,
     };
   }
 
-  componentDidMount() {
-    this.setState({
-      commentList: this.props.commentData,
-      isLike: this.props.isLike,
-    });
-  }
+  // componentDidMount() {
+  //   this.setState({
+  //     commentList: this.props.commentData,
+  //     isLike: this.props.isLike,
+  //   });
+  // }
 
   hadComment = event => {
     this.setState({
@@ -31,18 +28,19 @@ export class Feed extends Component {
     });
   };
 
+  // 클릭함수
   submitComent = () => {
-    this.setState({
-      commentList: this.state.commentList.concat([
-        {
-          id: this.state.commentList.length + 1,
-          userName: 'eessoo__',
-          content: this.state.comment,
-          commentLike: false,
-        },
-      ]),
-      comment: '',
-    });
+    // this.setState({
+    //   commentList: this.state.commentList.concat([
+    //     {
+    //       id: this.state.commentList.length + 1,
+    //       userName: 'eessoo__',
+    //       content: this.state.comment,
+    //       commentLike: false,
+    //     },
+    //   ]),
+    //   comment: '',
+    // });
   };
 
   handleKeyPress = event => {
@@ -122,12 +120,25 @@ export class Feed extends Component {
             <span className="postTime">54분 전</span>
           </p>
           <ul id="commnetBox">
-            {this.state.commentList.map(comment => {
+            {/* {this.state.commentList.map(comment => {
               return (
                 <Comment
                   key={comment.id}
-                  name={comment.userName}
-                  comment={comment.content}
+                  userName={comment.userName}
+                  content={comment.content}
+                  commnetLike={comment.commnetLike}
+                  // 추가 기능 구현 중
+                  // handleCommnetDelete={this.handleCommnetDelete}
+                  // id={comment.id}
+                />
+              );
+            })} */}
+            {this.props.commentData.map(comment => {
+              return (
+                <Comment
+                  key={comment.id}
+                  userName={comment.userName}
+                  content={comment.content}
                   commnetLike={comment.commnetLike}
                   // 추가 기능 구현 중
                   // handleCommnetDelete={this.handleCommnetDelete}

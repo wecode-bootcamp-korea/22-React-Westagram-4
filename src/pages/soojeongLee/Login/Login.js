@@ -23,13 +23,6 @@ class Login extends Component {
     this.props.history.push('/main-Soojeong#');
   };
 
-  handleKeyPress = event => {
-    if (event.key === 'Enter') {
-      event.preventDefault();
-      this.goToMain();
-    }
-  };
-
   render() {
     const isValid =
       this.state.id.includes('@') &&
@@ -45,7 +38,7 @@ class Login extends Component {
 
           <section className="loginInputBox">
             <h2 className="sr-only">login page</h2>
-            <form onKeyPress={this.handleKeyPress}>
+            <form>
               <input
                 name="id"
                 autoComplete="off"

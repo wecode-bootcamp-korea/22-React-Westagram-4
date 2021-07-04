@@ -27,9 +27,9 @@ export class Comment extends Component {
     return (
       <li>
         <Link to="" className="commentUserId">
-          {this.props.name}
+          {this.props.userName}
         </Link>
-        <span className="commnetList">{this.props.comment}</span>
+        <span className="commnetList">{this.props.content}</span>
         <button className="commentLike" onClick={this.handleCommnetLike}>
           {this.state.commentLike ? (
             <i className="fas fa-heart"></i>

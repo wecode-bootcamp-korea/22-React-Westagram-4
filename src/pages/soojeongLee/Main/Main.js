@@ -27,6 +27,7 @@ class Main extends React.Component {
   }
 
   render() {
+    // console.log(this.state.feedList); // 데이터 확인을 위한 콘솔
     const { feedList } = this.state;
     return (
       <div className="Main">
