@@ -11,23 +11,23 @@ const FEED = [
   },
   {
     id: 2,
-    feedId: 'glorious_min',
+    feedId: 'lalalala',
     feedProfilePhoto:
       'https://cdn.pixabay.com/photo/2021/05/14/22/11/faces-6254573_1280.jpg',
     feedImage:
       'https://cdn.pixabay.com/photo/2021/05/23/21/57/mountains-6277391_1280.jpg',
-    howManyLikes: 'spanish_ghetto님외 34명이 좋아합니다',
-    feedContent: '사진 찍었다.',
+    howManyLikes: 'bockdan11님외 34명이 좋아합니다',
+    feedContent: '졸려.',
   },
   {
     id: 3,
-    feedId: 'glorious_min',
+    feedId: 'huhuhihi',
     feedProfilePhoto:
       'https://cdn.pixabay.com/photo/2020/07/21/17/48/love-5426977_1280.jpg',
     feedImage:
       'https://cdn.pixabay.com/photo/2020/12/15/14/20/aerial-view-5833791_1280.jpg',
-    howManyLikes: 'spanish_ghetto님외 34명이 좋아합니다',
-    feedContent: '사진 찍었다.',
+    howManyLikes: 'staycee_3님외 34명이 좋아합니다',
+    feedContent: '여행가야지.',
   },
 ];
 
