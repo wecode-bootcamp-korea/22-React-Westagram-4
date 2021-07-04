@@ -1,0 +1,10 @@
+.listDot {
+  font-size: 14px;
+  &::after {
+    content: '·';
+    margin: 5px;
+  }
+  &:last-child::after {
+    content: '';
+  }
+}

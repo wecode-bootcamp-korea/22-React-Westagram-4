@@ -1,5 +1,6 @@
 //필수
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // 스타일
 import './Nav.scss';
@@ -9,12 +10,12 @@ class Nav extends React.Component {
     return (
       <nav>
         <h1>
-          <a href="#" className="iconLogo">
+          <Link to="" className="iconLogo">
             <i className="fab fa-instagram"></i>
-          </a>
-          <a href="#" className="letterLogo">
+          </Link>
+          <Link to="" className="letterLogo">
             <span>Westagram</span>
-          </a>
+          </Link>
         </h1>
         <div className="searchBox">
           <i className="fas fa-search"></i>

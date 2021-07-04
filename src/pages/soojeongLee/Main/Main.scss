@@ -1,0 +1,131 @@
+@import '../../../styles/variables.scss';
+
+.Main {
+  main {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 100px;
+    background-color: $gray-color;
+    .feeds {
+      flex: 7;
+      background-color: $gray-color;
+    }
+
+    .main-right {
+      flex: 3;
+      margin-left: 2%;
+
+      .userAccount {
+        padding: 10px;
+
+        h1 {
+          display: flex;
+          font-size: 16px;
+          color: $gray-color;
+
+          .mainRightProfile {
+            @include userProfile;
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            min-height: 40px;
+            margin-right: 10px;
+            background-image: url('http://localhost:3000/images/soojeongLee/wecode.jpg');
+            background-size: cover;
+          }
+
+          .accountDec {
+            display: block;
+            font-size: 13px;
+            font-weight: normal;
+          }
+        }
+      }
+
+      .asideBox {
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #ffffff;
+        border-radius: 3px;
+        border: 1px solid $gray-color;
+
+        header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 10px;
+
+          h2 {
+            margin-bottom: 5px;
+            font-size: 14px;
+            font-weight: normal;
+            color: $border-color;
+          }
+
+          .btnTextColor {
+            @include button;
+            color: #000;
+            font-weight: bold;
+          }
+        }
+
+        .recommandUser {
+          .otherUserProfile {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            font-weight: bold;
+
+            .profileBox {
+              display: flex;
+              align-items: center;
+              .otherUserImg {
+                @include userProfile;
+                margin-right: 10px;
+                img {
+                  width: 100%;
+                  height: 100%;
+                  border-radius: 30px;
+                }
+              }
+
+              .followReco {
+                display: block;
+                color: $border-color;
+                font-size: 14px;
+                font-weight: normal;
+              }
+            }
+
+            .follow {
+              @include button;
+              font-weight: bold;
+              color: $follow-color;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .main-right-footer {
+    display: flex;
+    flex-direction: column;
+    .footList {
+      margin-right: 5px;
+    }
+
+    .copyright {
+      display: inline-block;
+      margin-top: 30px;
+      font-size: 14px;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    .main-right {
+      display: none;
+    }
+  }
+}
